@@ -14,6 +14,8 @@ export default class Landing extends Component {
         }
     }
 
+<<<<<<< HEAD
+=======
     // handleInputChange(e){
     //     // Jerome - this enables you to update the input fields
     //     this.setState({
@@ -31,6 +33,7 @@ export default class Landing extends Component {
     //     console.log(user);
     // }
 
+>>>>>>> 45c4a33035ba67a1a5176d480e66ce2938e900cb
     render() {
         return (
             <div>
