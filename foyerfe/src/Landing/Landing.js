@@ -11,6 +11,7 @@ export default class Landing extends Component {
             password:''
         }
     }
+
     render() {
         return (
             <div>
