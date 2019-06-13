@@ -1,21 +1,17 @@
 import React from 'react';
 import Landing from './Landing/Landing';
-<<<<<<< HEAD
 import DashBoard from './dashBoard/DashBoard';
-=======
 import Register from './Landing/Register';
->>>>>>> 45c4a33035ba67a1a5176d480e66ce2938e900cb
+import Notes from './Notes/Notes';
 
 export default class App extends React.Component {
 
     render(){
         return(
-<<<<<<< HEAD
             <div>
                 <Landing/>
                 <DashBoard/>
-            </div>
-=======
+
             <main>
                 <Landing/>
                 <br/>
@@ -23,8 +19,10 @@ export default class App extends React.Component {
 
             </main>
 
-
->>>>>>> 45c4a33035ba67a1a5176d480e66ce2938e900cb
+                <p>
+                    <Notes/>
+                </p>
+            </div>
         )
     }
 
