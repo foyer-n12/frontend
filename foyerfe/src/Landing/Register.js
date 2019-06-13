@@ -15,12 +15,15 @@ export default class Register extends Component {
             password_confirm: ''
         }
     }
-    handleInputChange(){
-
-    }
-
-    handleSubmit(){
-
+    // handleInputChange(){
+    //
+    // }
+    //
+    // handleSubmit(){
+    //
+    // }
+    handleClick(event){
+        console.log(event);
     }
 
     render(){
@@ -61,7 +64,7 @@ export default class Register extends Component {
                                         this.setState({password:newValue})}
                                         />
                                         <br/>
-                                        <RaisedButton label="Sing Up" primary={true}/>
+                                        <RaisedButton label="Sing Up" secondary={true} onClick={(event) => this.handleClick(event)}/>
                     </div>
                 </MuiThemeProvider>
             </div>

@@ -31,6 +31,10 @@ export default class Landing extends Component {
     //     console.log(user);
     // }
 
+    handleClick(event){
+        console.log(event);
+    }
+
     render() {
         return (
             <div>
