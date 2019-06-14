@@ -7,5 +7,6 @@ export default store => next => action => {
         console.log('__ERROR__');
         action.error = error;
         return action;
+
     }
 }
