@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#favorite{
+  height:100px;
+  width:200px;
+  background-color: aliceblue;
+}
