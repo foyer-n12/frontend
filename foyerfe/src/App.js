@@ -2,7 +2,7 @@ import React from 'react';
 import Landing from './Landing/Landing';
 import DashBoard from './dashBoard/DashBoard';
 import Register from './Landing/Register';
-import Notes from './Notes/Notes';
+import NoteDashboard from './Notes/NoteDashboard';
 
 export default class App extends React.Component {
 
@@ -20,7 +20,7 @@ export default class App extends React.Component {
             </main>
 
                 <p>
-                    <Notes/>
+                    <NoteDashboard/>
                 </p>
             </div>
         )
