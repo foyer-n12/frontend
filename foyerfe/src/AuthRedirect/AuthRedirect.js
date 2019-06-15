@@ -11,10 +11,10 @@ class AuthRedirect extends React.Component{
 
         let destinationRoute = null; // Jerome - the final route I want to send to the user
 
-        if(pathname === '/login' || pathname === '/signup' || pathname === '/' || pathname === '/logout') {
+        if(pathname === '/login' || pathname === '/signup' || pathname === '/' || pathname === '/logout' || pathname==='/Dashboard') {
             if(token) {
                 // Jerome - the user is already logged in
-                destinationRoute = '/dashboard';
+                destinationRoute = '/Dashboard';
             }
         } else if(!token) {
             destinationRoute = '/';
