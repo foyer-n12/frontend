@@ -3,6 +3,7 @@ import Landing from './Landing/Landing';
 import DashBoard from './dashBoard/DashBoard';
 import Register from './Landing/Register';
 import NoteDashboard from './Notes/NoteDashboard';
+// import {createStore} from 'Redux';
 
 export default class App extends React.Component {
 

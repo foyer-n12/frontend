@@ -20,7 +20,7 @@ export default class NoteDashboard extends React.Component {
 
     handleContent = (event) => this.setState({content: event.target.value});
 
-    handleSubmit = async (event) =>{
+    handleSubmit = async (event) =>{ // change to handleChange
         event.preventDefault();
 
         await this.addNote(this.state.content);

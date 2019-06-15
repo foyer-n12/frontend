@@ -15,7 +15,7 @@ const NoteCreateForm = ({handleContent, handleSubmit}) => (
             rows="30"
             onChange={handleContent}
         />
-        <p><button type="submit">Sumbit</button></p>
+        {/*<p><button type="submit">Sumbit</button></p>*/}
     </form>
 
 );
