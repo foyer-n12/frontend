@@ -1,30 +1,23 @@
 import React from 'react';
-import Landing from './Landing/Landing';
-<<<<<<< HEAD
-import DashBoard from './dashBoard/DashBoard';
-=======
+import {BrowserRouter, Route} from "react-router-dom";
+import AuthLanding from './Landing/AuthLanding';
 import Register from './Landing/Register';
->>>>>>> 45c4a33035ba67a1a5176d480e66ce2938e900cb
+import AuthRedirect from './AuthRedirect/AuthRedirect';
+import Landing from './Landing/Landing';
+import DashBoard from './dashBoard/DashBoard';
 
 export default class App extends React.Component {
 
     render(){
         return(
-<<<<<<< HEAD
             <div>
-                <Landing/>
-                <DashBoard/>
+                <BrowserRouter>
+                    <Route path="*" component={AuthRedirect}/>
+                    <Route exact path="/" component={AuthLanding}/>
+                    <Route exact path="/login" component={AuthLanding}/>
+                    <Route exact path="/signup" component={AuthLanding}/>
+                </BrowserRouter>
             </div>
-=======
-            <main>
-                <Landing/>
-                <br/>
-                <Register/>
-
-            </main>
-
-
->>>>>>> 45c4a33035ba67a1a5176d480e66ce2938e900cb
         )
     }
 
