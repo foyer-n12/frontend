@@ -1,68 +1,70 @@
 import React, { Component } from 'react';
-import AppBar from 'material-ui/AppBar';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
+// import AppBar from 'material-ui/AppBar';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import RaisedButton from 'material-ui/RaisedButton';
+// import TextField from 'material-ui/TextField';
+import {AuthLanding} from "../Landing/AuthLanding";
 import App from "../App";
 
+// const defaultState = {username: '', email: '', password: ''};
+
 export default class Landing extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
-            username:'',
-            password:''
+        this.state = {
+            username: '',
+            email: '',
+            password: ''
         }
     }
 
 
-    // handleInputChange(e){
-    //     // Jerome - this enables you to update the input fields
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
-    //
-    // handleOnChange(e){
-    //     // Jerome - this is where you mutate the state
-    //     e.preventDefault();
-    //     const user = {
-    //         username: this.state.username,
-    //         password: this.state.password,
-    //     };
-    //     console.log(user);
-    // }
+handleChange = (event) => {
+        const {name, value} = event.target;
+        this.setState({[name] : value});
+};
+
+
+    handleSubmit = (event) =>{
+        // console.log(event);
+        event.preventDefault();
+        // this.props.onComplete(this.state);
+        this.setState({username: event.target.username.value});
+        console.log(this.state.username);
+    };
 
 
     render() {
+        //Jerome - type is going to tell me if my form is a login or a signup
+        let {type} = this.props;
+        type = type === 'login' ? 'login' : 'signup';
+
+        const emailJSX =
+            <input
+                name='email'
+                placeholder='email'
+                type='email'
+                value={this.state.email}
+                onChange={this.handleChange}
+            />;
         return (
-            <div>
-                <MuiThemeProvider>
-                    <AppBar
-                        title="Login"
-                    />
-                    <TextField
-                        hintText="Please enter your Username"
-                        floatingLabelText="Username"
-                        onChange={(event,newValue) =>
-                        this.setState({username:newValue})}
-                        // onChange={this.handleInputChange}
-                        // value={this.handleOnChange}
-                        />
-                        <br/>
-                        <TextField
-                            hintText="Please enter your Password"
-                            floatingLabelText="Password"
-                            onChange={(event,newValue) =>
-                                this.setState({password:newValue})}
-                            // onChange={this.handleInputChange}
-                            // value={this.handleOnChange}
-                            />
-                            <br/>
-                            <RaisedButton label="Sign In" primary={true} onClick={(event) => this.handleClick(event)}/>
-                </MuiThemeProvider>
-            </div>
+            <form onSubmit={this.handleSubmit}>
+                <input
+                    name='username'
+                    placeholder='username'
+                    type="text"
+                    value={this.state.username}
+                    onChange={this.handleChange}
+                />
+                {type !== 'login' ? emailJSX : undefined}
+                <input
+                    name='password'
+                    type='password'
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                />
+                <button type='submit'>{type}</button>
+            </form>
         );
-
     }
-
 };
