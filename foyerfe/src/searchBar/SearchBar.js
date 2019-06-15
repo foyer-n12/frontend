@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class DashBoard extends Component {
+export default class SearchBar extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -10,7 +10,6 @@ export default class DashBoard extends Component {
 
     handleSubmit=event=>{
         event.preventDefault();
-        console.log(event.target);
         let search = this.state.query.replace(' ','+');
         window.open(`http://google.com/search?q=${search}`,'_blank')
     };
@@ -24,17 +23,17 @@ export default class DashBoard extends Component {
 
     render() {
         return(
-            <div>
-            <form onSubmit={this.handleSubmit}>
-                <input
-                    type ='text'
-                    name='query'
-                    value={this.state.query}
-                    onChange={this.handleChange}
-                />
-                <button type='submit'> Google </button>
-            </form>
+            <div id = 'searchbar'>
+                <form onSubmit={this.handleSubmit}>
+                    <input
+                        type ='text'
+                        name='query'
+                        value={this.state.query}
+                        onChange={this.handleChange}
+                    />
+                    <button type='submit'> Google </button>
+                </form>
             </div>
-    )
+        )
     }
 };

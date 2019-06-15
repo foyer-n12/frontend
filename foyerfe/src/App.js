@@ -1,27 +1,27 @@
 import React from 'react';
+import {BrowserRouter, Route} from "react-router-dom";
+import AuthLanding from './Landing/AuthLanding';
+import Dashboard from './Dashboard/Dashboard';
+import Register from './Landing/Register';
+import AuthRedirect from './AuthRedirect/AuthRedirect';
 import Landing from './Landing/Landing';
 import DashBoard from './dashBoard/DashBoard';
-import Register from './Landing/Register';
-import Notes from './Notes/Notes';
+import NoteDashboard from './Notes/NoteDashboard';
+
 
 export default class App extends React.Component {
 
     render(){
         return(
             <div>
-                <Landing/>
-                <DashBoard/>
-
-            <main>
-                <Landing/>
-                <br/>
-                <Register/>
-
-            </main>
-
-                <p>
-                    <Notes/>
-                </p>
+                <BrowserRouter>
+                    <Route path="*" component={AuthRedirect}/>
+                    <Route exact path="/" component={AuthLanding}/>
+                    <Route exact path="/login" component={AuthLanding}/>
+                    <Route exact path="/signup" component={AuthLanding}/>
+                    <Route exact path="/logout" component={AuthLanding}/>
+                    <Route exact path="/dashboard" component={Dashboard}/>
+                </BrowserRouter>
             </div>
         )
     }
