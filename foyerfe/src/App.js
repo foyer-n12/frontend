@@ -3,10 +3,12 @@ import {BrowserRouter, Route} from "react-router-dom";
 import AuthLanding from './Landing/AuthLanding';
 import Register from './Landing/Register';
 import AuthRedirect from './AuthRedirect/AuthRedirect';
+import Landing from './Landing/Landing';
+import DashBoard from './dashBoard/DashBoard';
 
 export default class App extends React.Component {
-    render(){
 
+    render(){
         return(
             <div>
                 <BrowserRouter>
@@ -14,10 +16,9 @@ export default class App extends React.Component {
                     <Route exact path="/" component={AuthLanding}/>
                     <Route exact path="/login" component={AuthLanding}/>
                     <Route exact path="/signup" component={AuthLanding}/>
-                    {/*<Route exact path="/login" component={Landing}/>*/}
                 </BrowserRouter>
             </div>
-
         )
     }
+
 }
