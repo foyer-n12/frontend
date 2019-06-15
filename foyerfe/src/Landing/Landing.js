@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AppBar from 'material-ui/AppBar';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
+// import AppBar from 'material-ui/AppBar';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import RaisedButton from 'material-ui/RaisedButton';
+// import TextField from 'material-ui/TextField';
 import {AuthLanding} from "../Landing/AuthLanding";
 import App from "../App";
 
@@ -18,6 +18,7 @@ export default class Landing extends Component {
         }
     }
 
+
 handleChange = (event) => {
         const {name, value} = event.target;
         this.setState({[name] : value});
@@ -31,6 +32,7 @@ handleChange = (event) => {
         // this.setState({username: event.target.username.value});
         console.log(this.state.username);
     };
+
 
     render() {
         //Jerome - type is going to tell me if my form is a login or a signup

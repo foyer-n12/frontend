@@ -4,10 +4,14 @@ import AuthLanding from './Landing/AuthLanding';
 import Dashboard from './Dashboard/Dashboard';
 import Register from './Landing/Register';
 import AuthRedirect from './AuthRedirect/AuthRedirect';
+import Landing from './Landing/Landing';
+import DashBoard from './dashBoard/DashBoard';
+import NoteDashboard from './Notes/NoteDashboard';
+
 
 export default class App extends React.Component {
-    render(){
 
+    render(){
         return(
             <div>
                 <BrowserRouter>
@@ -19,7 +23,7 @@ export default class App extends React.Component {
                     <Route exact path="/dashboard" component={Dashboard}/>
                 </BrowserRouter>
             </div>
-
         )
     }
+
 }
