@@ -18,6 +18,7 @@ export default class Landing extends Component {
         }
     }
 
+
 handleChange = (event) => {
         const {name, value} = event.target;
         this.setState({[name] : value});
@@ -31,6 +32,7 @@ handleChange = (event) => {
         this.setState({username: event.target.username.value});
         console.log(this.state.username);
     };
+
 
     render() {
         //Jerome - type is going to tell me if my form is a login or a signup

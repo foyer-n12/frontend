@@ -5,6 +5,8 @@ import Register from './Landing/Register';
 import AuthRedirect from './AuthRedirect/AuthRedirect';
 import Landing from './Landing/Landing';
 import DashBoard from './dashBoard/DashBoard';
+import NoteDashboard from './Notes/NoteDashboard';
+
 
 export default class App extends React.Component {
 
