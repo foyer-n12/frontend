@@ -42,7 +42,8 @@ handleChange = (event) => {
                 name='email'
                 placeholder='email'
                 type='email'
-                value={this.handleChange}
+                value={this.state.email}
+                onChange={this.handleChange}
             />;
         return (
             <form onSubmit={this.handleSubmit}>
