@@ -28,7 +28,7 @@ handleChange = (event) => {
         // console.log(event);
         event.preventDefault();
         this.props.onComplete(this.state);
-        this.setState({username: event.target.username.value});
+        // this.setState({username: event.target.username.value});
         console.log(this.state.username);
     };
 
