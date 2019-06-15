@@ -28,8 +28,8 @@ handleChange = (event) => {
     handleSubmit = (event) =>{
         // console.log(event);
         event.preventDefault();
-        // this.props.onComplete(this.state);
-        this.setState({username: event.target.username.value});
+        this.props.onComplete(this.state);
+        // this.setState({username: event.target.username.value});
         console.log(this.state.username);
     };
 
@@ -37,7 +37,7 @@ handleChange = (event) => {
     render() {
         //Jerome - type is going to tell me if my form is a login or a signup
         let {type} = this.props;
-        type = type === 'login' ? 'login' : 'signup';
+        type = type === 'login' ? 'login' : 'signup' || 'logout';
 
         const emailJSX =
             <input
