@@ -15,6 +15,7 @@ export default class DashBoard extends Component {
             <div>
                 <SearchBar/>
                 <Favorites/>
+
             </div>
         )
     }
