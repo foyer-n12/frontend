@@ -15,9 +15,9 @@ class AuthLanding extends React.Component{
     handleLogin = (user) => {
         return this.props.pDoLogin(user.username, user.password);
     };
-    handleLogout = (user) => {
-        return this.props.pDoLogout(user.username, user.password);
-    };
+    // handleLogout = (user) => {
+    //     return this.props.pDoLogout(user.username, user.password);
+    // };
 
     render() {
         const rootJSX =
@@ -50,15 +50,16 @@ class AuthLanding extends React.Component{
             <div>
                 <h1>Login</h1>
                 <Landing type='login' onComplete={this.handleLogin}/>
-                <Link to='/signup'>Signup</Link>
+                <Link to='/signup'>Signup</Link><br/>
+                {/*<Link to='/login'>Logout</Link>*/}
             </div>;
 
-        const logoutJSX =
-            <div>
-                <h1>LogOut</h1>
-                <Landing type='logout' onComplete={this.handleLogout}/>
-                <Link to='/login'>Login</Link>
-            </div>;
+        // const logoutJSX =
+        //     <div>
+        //         <h1>LogOut</h1>
+        //         <Landing type='logout' onComplete={this.handleLogout}/>
+        //         <Link to='/login'>Login</Link>
+        //     </div>;
 
 
         const {location} = this.props;
@@ -66,9 +67,9 @@ class AuthLanding extends React.Component{
             <div>
                 <nav>
                     {location.pathname === '/' ? rootJSX : undefined }
-                    {location.pathname === '/login' ? loginJSX : undefined }
                     {location.pathname === '/signup' ? signUpJSX : undefined }
-                    {location.pathname === '/logout' ? logoutJSX : undefined }
+                    {location.pathname === '/login' ? loginJSX : undefined }
+                    {/*{location.pathname === '/logout' ? logoutJSX : undefined }*/}
                 </nav>
             </div>
         );
@@ -84,9 +85,9 @@ const mapDispatchToProps = dispatch => ({
     pDoLogin: (username, password) => {
         return dispatch(authActions.loginRequest(username, password))
     },
-    pDoLogout: (username, password) => {
-        return dispatch(authActions.logutRequest(username, password))
-    },
+    // pDoLogout: (username, password) => {
+    //     return dispatch(authActions.logutRequest(username, password))
+    // },
 });
 
 export default connect(null, mapDispatchToProps)(AuthLanding);
