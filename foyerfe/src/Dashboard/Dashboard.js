@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from '../searchBar/SearchBar'
 import Favorites from '../favorites/Favorites'
+import NoteDashboard from "../Notes/NoteDashboard";
 
 export default class Dashboard extends Component {
     constructor(props){
@@ -15,6 +16,7 @@ export default class Dashboard extends Component {
             <div>
                 <SearchBar/>
                 <Favorites/>
+                <NoteDashboard/>
             </div>
         )
     }
