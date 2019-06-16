@@ -14,7 +14,7 @@ export default class App extends React.Component {
                     <Route exact path="/" component={AuthLanding}/>
                     <Route exact path="/login" component={AuthLanding}/>
                     <Route exact path="/signup" component={AuthLanding}/>
-                    <Route exact path="/logout" component={AuthLanding}/>
+                    {/*<Route exact path="/logout" component={AuthLanding}/>*/}
                     <Route exact path="/Dashboard" component={Dashboard}/>
                 </BrowserRouter>
             </div>
