@@ -23,14 +23,6 @@ export default class NoteDashboard extends React.Component {
         // console.log(this.state.content);
     };
 
-    handleSubmit = async (event) =>{ // change to handleChange
-        event.preventDefault();
-
-        await this.addNote(this.state.content);
-    };
-
-    // handleClear = (note) =>
-
     handleRemoteNote = (note) => {
         this.setState(previousState => ({
             notes: previousState.notes.filter(currentNotes => currentNotes.id !== note.id),
@@ -51,10 +43,11 @@ export default class NoteDashboard extends React.Component {
                 <NoteCreateForm
                     notes={this.state.notes}
                     handleContent={this.handleContent}
-                    handleSubmit={this.handleSubmit}
+                    handleClear={this.handleClear}
                     handleRemoveNote={this.handleRemoteNote}
                     handleUpdateNote={this.handleUpdateNote}
                 />
+
             </div>
         )
     }

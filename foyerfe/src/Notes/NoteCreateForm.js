@@ -1,12 +1,15 @@
 import React from 'react';
 
-
+const handleClear = (note) => {
+    document.getElementById("noteForm").reset(); // probably shouldn't manipulate the DOM with React like this.
+    this.setState({content: ''});
+    console.log(this.state.content);
+};
 
 const NoteCreateForm = ({handleContent}) => (
-    <form onChange={handleContent}>
-        {/*<input*/}
-        {/*    type="text"*/}
-        {/*    placeholder="Type some notes"/>*/}
+    <form onChange={handleContent} id="noteForm">
+        {/*from: https://stackoverflow.com/questions/43922508/clear-and-reset-form-input-fields/43922523*/}
+
         <textarea
             name="content"
             placeholder="type some notes"
@@ -14,7 +17,7 @@ const NoteCreateForm = ({handleContent}) => (
             cols="30"
             rows="30"
         />
-        {/*<p><button type="submit">Sumbit</button></p>*/}
+        <button onClick={handleClear}>Clear</button>
     </form>
 
 );

@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import SearchBar from '../searchBar/SearchBar'
 import Favorites from '../favorites/Favorites'
 import * as authActions from "../Action/auth-actions";
-
+import NoteDashboard from "../Notes/NoteDashboard";
 
 import {connect} from 'react-redux';
+
 
 export class Dashboard extends Component {
     constructor(props){
@@ -23,6 +24,7 @@ export class Dashboard extends Component {
             <div>
                 <SearchBar/>
                 <Favorites/>
+                <NoteDashboard/>
                <button onClick={this.handleLogout}>LogOut</button>
 
             </div>
