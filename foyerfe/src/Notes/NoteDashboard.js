@@ -18,7 +18,10 @@ export default class NoteDashboard extends React.Component {
         }));
     };
 
-    handleContent = (event) => this.setState({content: event.target.value});
+    handleContent = async (event) => {
+        this.setState({content: event.target.value});
+        // console.log(this.state.content);
+    };
 
     handleSubmit = async (event) =>{ // change to handleChange
         event.preventDefault();
@@ -27,6 +30,7 @@ export default class NoteDashboard extends React.Component {
     };
 
     // handleClear = (note) =>
+
     handleRemoteNote = (note) => {
         this.setState(previousState => ({
             notes: previousState.notes.filter(currentNotes => currentNotes.id !== note.id),
