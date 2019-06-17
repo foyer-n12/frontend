@@ -24,6 +24,7 @@ export class Dashboard extends Component {
                 <Favorites/>
                <button onClick={this.handleLogout}>LogOut</button>
             </div>
+
         )
     }
 };

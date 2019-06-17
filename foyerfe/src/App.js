@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route} from "react-router-dom";
-import AuthLanding from './Landing/AuthLanding';
+import AuthLanding from './Landing/Landing';
 import Dashboard from './Dashboard/Dashboard';
 import AuthRedirect from './AuthRedirect/AuthRedirect';
 
