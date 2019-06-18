@@ -1,16 +1,8 @@
 import React from 'react';
+import NoteDashboard from './NoteDashboard';
 
-const handleClear = (note) => {
-    // this.preventDefault();
-    document.getElementById("noteForm").reset(); // probably shouldn't manipulate the DOM with React like this.
-    this.setState({content: ''});
-    console.log(this.state.content);
-};
 
-// const handlePrint = (event) => {
-//     event.preventDefault();
-//     console.log(this.state.content);
-// };
+
 
 const NoteCreateForm = ({handleContent}) => (
     <form onChange={handleContent} id="noteForm">
@@ -23,8 +15,7 @@ const NoteCreateForm = ({handleContent}) => (
             cols="30"
             rows="30"
         />
-        <button onClick={handleClear}>Clear</button>
-        <button onClick={handlePrint}>Print</button>
+
 
     </form>
 

@@ -23,6 +23,14 @@ export default class NoteDashboard extends React.Component {
         // console.log(this.state.content);
     };
 
+    handleClear = (event) => {
+        event.preventDefault();
+        document.getElementById("noteForm").reset();
+        // probably shouldn't manipulate the DOM with React like this.
+        this.setState({content: ''});
+        console.log(this.state.content);
+    };
+
     handleRemoteNote = (note) => {
         this.setState(previousState => ({
             notes: previousState.notes.filter(currentNotes => currentNotes.id !== note.id),
@@ -37,6 +45,11 @@ export default class NoteDashboard extends React.Component {
         return {notes: updateNotes };
     });
 
+    handlePrint = (event) => {
+        event.preventDefault();
+        console.log(this.state.content);
+    };
+
     render(){
         return(
             <div>
@@ -47,6 +60,8 @@ export default class NoteDashboard extends React.Component {
                     handleRemoveNote={this.handleRemoteNote}
                     handleUpdateNote={this.handleUpdateNote}
                 />
+                <button onClick={this.handleClear}>Clear</button>
+                <button onClick={this.handlePrint}>Print</button>
 
             </div>
         )
