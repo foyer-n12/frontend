@@ -14,7 +14,7 @@ export class Dashboard extends Component {
     }
 
     handleLogout = () => {
-        this.props.logout();
+       return this.props.logout();
     };
 
     render() {
@@ -36,6 +36,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
+    console.log(dispatch);
     return {
         logout: () => {
              dispatch(authActions.remove());

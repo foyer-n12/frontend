@@ -32,7 +32,7 @@ export default class Register extends Component {
 
     render(){
         return(
-            <div>
+
                 <MuiThemeProvider>
                     <div>
                         {/*<AppBar*/}
@@ -71,7 +71,6 @@ export default class Register extends Component {
                                         <RaisedButton label="Sing Up" secondary={true} onClick={(event) => this.handleClick(event)}/>
                     </div>
                 </MuiThemeProvider>
-            </div>
         )
     }
 }

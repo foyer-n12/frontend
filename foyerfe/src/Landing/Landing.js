@@ -52,6 +52,7 @@ class Landing extends React.Component{
 
                 <AuthForm type='login' onComplete={this.handleLogin}/>
                 <Link to='/signup'>
+
                   <button>SignUp</button>
                 </Link>
             </div>;

@@ -14,7 +14,7 @@ export const remove = () => ({
 const API_URL = 'http://localhost:3000/';
 const SIGNUP_ROUTE = 'signup';
 const LOGIN_ROUTE = 'login';
-// const LOGOUT_ROUTE = 'logout';
+const LOGOUT_ROUTE = 'logout';
 
 // Jerome - it's your job to call this function with everything it needs
 export const signupRequest = user => store => {
@@ -38,4 +38,7 @@ export const loginRequest = (username, password) => store => {
         })
         .catch(console.log);
 };
+
+
+
 

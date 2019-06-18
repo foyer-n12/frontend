@@ -59,7 +59,7 @@ handleChange = (event) => {
                     }
                 {type !== 'login' ? emailJSX : undefined}
                 </div>
-                <label htmlFor="username">Password</label>
+                <label htmlFor="password">Password</label>
                 <input
                     className="form-control"
                     name='password'
