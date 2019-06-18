@@ -1,6 +1,7 @@
 import React from 'react';
 
 const handleClear = (note) => {
+    // this.preventDefault();
     document.getElementById("noteForm").reset(); // probably shouldn't manipulate the DOM with React like this.
     this.setState({content: ''});
     console.log(this.state.content);
