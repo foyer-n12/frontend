@@ -7,6 +7,11 @@ const handleClear = (note) => {
     console.log(this.state.content);
 };
 
+// const handlePrint = (event) => {
+//     event.preventDefault();
+//     console.log(this.state.content);
+// };
+
 const NoteCreateForm = ({handleContent}) => (
     <form onChange={handleContent} id="noteForm">
         {/*from: https://stackoverflow.com/questions/43922508/clear-and-reset-form-input-fields/43922523*/}
@@ -19,6 +24,8 @@ const NoteCreateForm = ({handleContent}) => (
             rows="30"
         />
         <button onClick={handleClear}>Clear</button>
+        <button onClick={handlePrint}>Print</button>
+
     </form>
 
 );
