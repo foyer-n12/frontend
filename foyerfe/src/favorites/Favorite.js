@@ -5,7 +5,7 @@ import FavoriteForm from "./FavoritesForm";
 export default class Favorite extends Component {
 
     clickLink(){
-        window.open(this.state.link,'_blank')
+        window.open(this.props.link,'_blank')
     }
 
     render() {
