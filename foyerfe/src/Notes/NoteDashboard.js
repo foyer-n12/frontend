@@ -1,5 +1,6 @@
 import React from 'react';
-import NoteCreateForm from "./NoteCreateForm";
+import NoteCreateForm from './NoteCreateForm';
+import NoteModal from './NoteModal'
 import uuidv1 from 'uuid/v1';
 import './Note.scss'
 
@@ -8,7 +9,8 @@ export default class NoteDashboard extends React.Component {
         super(props);
         this.state = {
             notes: [],
-            content: ''
+            content: '',
+            isModalShowing: false
         };
     }
 
@@ -24,27 +26,24 @@ export default class NoteDashboard extends React.Component {
         // console.log(this.state.content);
     };
 
+    showModal = (event) => {
+        event.preventDefault();
+        this.setState({isModalShowing: true})
+    };
+
+    hideModal = (event) => {
+        event.preventDefault();
+        this.setState({isModalShowing: false})
+    };
+
     handleClear = (event) => {
         event.preventDefault();
         document.getElementById("noteForm").reset();
         // probably shouldn't manipulate the DOM with React like this.
         this.setState({content: ''});
         console.log(this.state.content);
+        this.setState({isModalShowing: false})
     };
-
-    handleRemoteNote = (note) => {
-        this.setState(previousState => ({
-            notes: previousState.notes.filter(currentNotes => currentNotes.id !== note.id),
-        }));
-    };
-
-    handleUpdateNote = (note) =>
-        this.setState((previousState) => {
-            const updateNotes = previousState.notes.map(currentNote =>
-                note.id === currentNote.id ? note :currentNote
-            );
-        return {notes: updateNotes };
-    });
 
     handlePrint = (event) => {
         event.preventDefault();
@@ -58,10 +57,14 @@ export default class NoteDashboard extends React.Component {
                     notes={this.state.notes}
                     handleContent={this.handleContent}
                     handleClear={this.handleClear}
-                    handleRemoveNote={this.handleRemoteNote}
-                    handleUpdateNote={this.handleUpdateNote}
                 />
-                <button onClick={this.handleClear}>Clear</button>
+                {this.state.isModalShowing && (
+                <NoteModal
+                    handleClear={this.handleClear}
+                    hideModal={this.hideModal}
+                />
+                )}
+                <button onClick={this.showModal}>Clear</button>
                 <button onClick={this.handlePrint}>Print</button>
 
             </div>
