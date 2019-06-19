@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from '../searchBar/SearchBar'
+import DarkSky from "../Weather/Weather";
 import FavoritesDiv from '../favorites/FavoritesDiv'
 import * as authActions from "../Action/auth-actions";
 import NoteDashboard from "../Notes/NoteDashboard";
@@ -24,6 +25,7 @@ export class Dashboard extends Component {
                 <SearchBar/>
                 <Favorites/>
                 <NoteDashboard/>
+                <DarkSky/>
                 <button onClick={this.handleLogout}>LogOut</button>
             </div>
         )
