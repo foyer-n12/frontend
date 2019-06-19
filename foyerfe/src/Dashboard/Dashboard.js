@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import SearchBar from '../searchBar/SearchBar'
 import FavoritesDiv from '../favorites/FavoritesDiv'
 import * as authActions from "../Action/auth-actions";
-
+import NoteDashboard from "../Notes/NoteDashboard";
 import {connect} from 'react-redux';
+
 
 export class Dashboard extends Component {
     constructor(props){
@@ -21,8 +22,9 @@ export class Dashboard extends Component {
         return(
             <div>
                 <SearchBar/>
-                <FavoritesDiv/>
-               <button onClick={this.handleLogout}>LogOut</button>
+                <Favorites/>
+                <NoteDashboard/>
+                <button onClick={this.handleLogout}>LogOut</button>
             </div>
         )
     }

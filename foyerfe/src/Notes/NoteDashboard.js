@@ -1,13 +1,16 @@
 import React from 'react';
-import NoteCreateForm from "./NoteCreateForm";
+import NoteCreateForm from './NoteCreateForm';
+import NoteModal from './NoteModal'
 import uuidv1 from 'uuid/v1';
+import './Note.scss'
 
 export default class NoteDashboard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             notes: [],
-            content: ''
+            content: '',
+            isModalShowing: false
         };
     }
 
@@ -23,27 +26,29 @@ export default class NoteDashboard extends React.Component {
         // console.log(this.state.content);
     };
 
-    handleSubmit = async (event) =>{ // change to handleChange
+    showModal = (event) => {
         event.preventDefault();
-
-        await this.addNote(this.state.content);
+        this.setState({isModalShowing: true})
     };
 
-    // handleClear = (note) =>
-
-    handleRemoteNote = (note) => {
-        this.setState(previousState => ({
-            notes: previousState.notes.filter(currentNotes => currentNotes.id !== note.id),
-        }));
+    hideModal = (event) => {
+        event.preventDefault();
+        this.setState({isModalShowing: false})
     };
 
-    handleUpdateNote = (note) =>
-        this.setState((previousState) => {
-            const updateNotes = previousState.notes.map(currentNote =>
-                note.id === currentNote.id ? note :currentNote
-            );
-        return {notes: updateNotes };
-    });
+    handleClear = (event) => {
+        event.preventDefault();
+        document.getElementById("noteForm").reset();
+        // probably shouldn't manipulate the DOM with React like this.
+        this.setState({content: ''});
+        console.log(this.state.content);
+        this.setState({isModalShowing: false})
+    };
+
+    handlePrint = (event) => {
+        event.preventDefault();
+        console.log(this.state.content);
+    };
 
     render(){
         return(
@@ -51,10 +56,17 @@ export default class NoteDashboard extends React.Component {
                 <NoteCreateForm
                     notes={this.state.notes}
                     handleContent={this.handleContent}
-                    handleSubmit={this.handleSubmit}
-                    handleRemoveNote={this.handleRemoteNote}
-                    handleUpdateNote={this.handleUpdateNote}
+                    handleClear={this.handleClear}
                 />
+                {this.state.isModalShowing && (
+                <NoteModal
+                    handleClear={this.handleClear}
+                    hideModal={this.hideModal}
+                />
+                )}
+                <button onClick={this.showModal}>Clear</button>
+                <button onClick={this.handlePrint}>Print</button>
+
             </div>
         )
     }
