@@ -1,4 +1,5 @@
 import React from 'react';
+import './Weather.scss';
 
 export default class DarkSkyWidget extends React.Component {
   constructor(props) {
@@ -8,12 +9,12 @@ export default class DarkSkyWidget extends React.Component {
 
   render() {
     return (
-        <div>
-        <iframe width="100%" height="200"scrolling="no" frameBorder="no"
-                src='https://darksky.net/widget/small/47.61805,-122.35205/us12/en.js?width=100%&height=200&title=Full Forecast&textColor=333333&bgColor=transparent&transparency=true&skyColor=undefined&fontFamily=Trebuchet MS&customFont=&units=us'>
+        <div className="hack">
+          <iframe id="forecast_embed" frameBorder="0" height="240" width="100%"
+                  src="//forecast.io/embed/#lat=47.6182769&lon=-122.3516573&name=Seattle, WA">
+          </iframe>
+          </div>
 
-        </iframe>
-        </div>
     )
     }
   }
