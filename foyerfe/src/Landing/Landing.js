@@ -6,17 +6,16 @@ import React, { Component } from 'react';
 import {AuthLanding} from "../Landing/AuthLanding";
 import App from "../App";
 
-// const defaultState = {username: '', email: '', password: ''};
+const defaultState = {username: '', email: '', password: ''};
 
 export default class Landing extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            username: '',
-            email: '',
-            password: ''
-        }
+        this.state = defaultState;
     }
+
+
+
 
 
 handleChange = (event) => {
@@ -29,7 +28,7 @@ handleChange = (event) => {
         // console.log(event);
         event.preventDefault();
         this.props.onComplete(this.state);
-        // this.setState({username: event.target.username.value});
+        this.setState(defaultState);
         console.log(this.state.username);
     };
 
