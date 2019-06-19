@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import SearchBar from '../searchBar/SearchBar'
 import DarkSky from "../Weather/Weather";
+import Clock from "../Clock/Clock";
 import FavoritesDiv from '../favorites/FavoritesDiv'
 import * as authActions from "../Action/auth-actions";
 import NoteDashboard from "../Notes/NoteDashboard";
 import {connect} from 'react-redux';
+
 
 
 export class Dashboard extends Component {
@@ -25,6 +27,7 @@ export class Dashboard extends Component {
                 <SearchBar/>
                 <Favorites/>
                 <NoteDashboard/>
+                <Clock/>
                 <DarkSky/>
                 <button onClick={this.handleLogout}>LogOut</button>
             </div>
