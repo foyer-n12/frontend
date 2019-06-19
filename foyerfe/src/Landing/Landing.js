@@ -3,10 +3,13 @@ import * as authActions from '../Action/auth-actions';
 import {Link} from "react-router-dom";
 import AuthForm from "./Auth-Form";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Button from 'react-bootstrap/Button';
+
 import TextField from 'material-ui/TextField';
 import Register from '../Landing/Register';
 
 import {connect} from 'react-redux';
+import {ButtonToolbar} from "react-bootstrap";
 
 class Landing extends React.Component{
 
@@ -25,18 +28,24 @@ class Landing extends React.Component{
 
         const rootJSX =
             <div  className="col-md-6 col-md-offset-3">
-                <MuiThemeProvider>
+                {/*<MuiThemeProvider>*/}
                     <div>
                         <label htmlFor="username"><h1>Welcome</h1></label>
-                <Link to='/signup'>
-                    <button type="button"> Sign up</button>
+                        <ButtonToolbar>
+                        <Link to='/signup'>
+                    {/* eslint-disable-next-line react/jsx-no-undef */}
+                    <Button variant="primary"> Sign up</Button>
                 </Link>
-                <br/>
+                        </ButtonToolbar>
+
+                        <br/>
+
                 <Link to='/login'>
                     <button type="button"> Login</button>
                 </Link>
+
             </div>
-        </MuiThemeProvider>
+        {/*</MuiThemeProvider>*/}
             </div>;
 
         const signUpJSX =
@@ -52,12 +61,12 @@ class Landing extends React.Component{
 
                 <AuthForm type='login' onComplete={this.handleLogin}/>
                 <Link to='/signup'>
+                    <div>
+                        <button>SignUp</button>
 
-                  <button>SignUp</button>
+                    </div>
                 </Link>
             </div>;
-
-
 
         const {location} = this.props;
         return(
@@ -66,7 +75,6 @@ class Landing extends React.Component{
                     {location.pathname === '/' ? rootJSX : undefined }
                     {location.pathname === '/signup' ? signUpJSX : undefined }
                     {location.pathname === '/login' ? loginJSX : undefined }
-                    {/*{location.pathname === '/logout' ? logoutJSX : undefined }*/}
                 </nav>
             </div>
         );

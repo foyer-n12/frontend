@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
 // import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import RaisedButton from 'material-ui/RaisedButton';
@@ -36,41 +39,48 @@ handleChange = (event) => {
         type = type === 'login' ? 'login' : 'signup' || 'logout';
 
         const emailJSX =
-            <input
-                name='email'
-                placeholder='email'
-                type='email'
-                value={this.state.email}
-                onChange={this.handleChange}
-            />;
-        const {username, password, submitted } = defaultState;
+            <Form name="form" onSubmit={this.handleSubmit}>
+                <Form.Group controlId="formBasicuEmail">
+                    <Form.Label htmlFor="username">Email</Form.Label>
+                    <Form.Control
+                    name='email'
+                    placeholder='email'
+                    type='email'
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                />
+                </Form.Group>
+            </Form>
+
         return (
             <form name="form" onSubmit={this.handleSubmit}>
-                <div className={'form-group' + (submitted && !username ? ' has error' : '')}>
-                <label htmlFor="username">Username</label>
-                <input
-                    className="form-control"
+                <Form.Group controlId="formBasicuUsername">
+                <Form.Label htmlFor="username">Username</Form.Label>
+                <Form.Control
+                   placeholder="Enter Username"
                     name='username'
                     type="text"
                     value={this.state.username}
                     onChange={this.handleChange}
                 />
-                    {submitted && !username && <div className="help-block">Username is required</div>
-                    }
+                </Form.Group>
+
                 {type !== 'login' ? emailJSX : undefined}
-                </div>
-                <label htmlFor="password">Password</label>
-                <input
-                    className="form-control"
-                    name='password'
+
+                <Form.Group controlId="formBasicuPassword">
+
+                    <Form.Label htmlFor="password">Password</Form.Label>
+
+                    <Form.Control
+                    placeholder='password'
+                    name="password"
                     type='password'
                     value={this.state.password}
                     onChange={this.handleChange}
                 />
-                {submitted && !password && <div className="help-block">Password is required</div>
-                }
-                <button type='submit'>{type}</button>
-                {/*<Register/>*/}
+                </Form.Group>
+
+                <Button variant="primary" type='submit'>{type}</Button>
             </form>
         );
     }
