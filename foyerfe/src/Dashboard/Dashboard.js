@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from '../searchBar/SearchBar'
-import Favorites from '../favorites/Favorites'
+import FavoritesDiv from '../favorites/FavoritesDiv'
 import * as authActions from "../Action/auth-actions";
-
 
 import {connect} from 'react-redux';
 
@@ -22,9 +21,8 @@ export class Dashboard extends Component {
         return(
             <div>
                 <SearchBar/>
-                <Favorites/>
+                <FavoritesDiv/>
                <button onClick={this.handleLogout}>LogOut</button>
-
             </div>
         )
     }
