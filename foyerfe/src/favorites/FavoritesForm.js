@@ -2,21 +2,6 @@ import React from 'react';
 import {connect} from "react-redux";
 import * as favoritesActions from "../Action/favorite-actions";
 
-
-const mapDispatchToProps=dispatch=>({
-    create: favorite=>{
-        return(dispatch(favoritesActions.createFavorite(favorite)));
-    },
-
-    update:favorite=>{
-        return(dispatch(favoritesActions.updateFavorite(favorite)));
-    },
-
-    delete:favorite=>{
-        return(dispatch(favoritesActions.removeFavorite(favorite)));
-    },
-});
-
 class FavoritesForm extends React.Component {
 
     constructor(props){
@@ -41,10 +26,17 @@ class FavoritesForm extends React.Component {
     handleSubmit = event =>{
         event.preventDefault();
         if (this.props.favorite){
-            this.props.update({name: event.target.name, link: event.target.link})
+            this.props.update(this.state)
         }else{
-            this.props.create({name: event.target.name, link: event.target.link})
+            this.props.create({name: event.target.name.value, link: event.target.link.value})
+            this.setState({
+                name:'',
+                link:'',
+            )
+            }
         }
+
+
     };
 
     render(){
@@ -68,5 +60,17 @@ class FavoritesForm extends React.Component {
         );
     }
 }
+
+const mapDispatchToProps=dispatch=>({
+    create: favorite=>{
+        return(dispatch(favoritesActions.createFavorite(favorite)));
+    },
+    update:favorite=>{
+        return(dispatch(favoritesActions.updateFavorite(favorite)));
+    },
+    delete:favorite=>{
+        return(dispatch(favoritesActions.removeFavorite(favorite)));
+    },
+});
 
 export default connect(null, mapDispatchToProps)(FavoritesForm);

@@ -1,28 +1,33 @@
-const initialState = [];
+import{createFavorite,updateFavorite,removeFavorite} from "../Action/favorite-actions";
+const initialFavoriteState = {
+    favoritesArr:[],
+};
 
-export default (state = initialState, {type, payload}) => {
-
-    const favorite = payload;
-    let newState = state;
+export default (state = initialFavoriteState, {type, payload}) => {
+    console.log(state.favoritesArr);
+    let newState=state;
     switch(type) {
         case 'ADD-FAVORITE': //LOGIN
             // Connor - payload is a favorite
-            newState.push(favorite);
-            return newState;
+            return {
+                ...newState,
+                favorites: newState.favoritesArr.push(payload),
+            };
         case 'REMOVE-FAVORITE': //yes
-            newState.filter(currentfavorite=>{
-                return currentfavorite !== favorite
-            });
-            return newState;
+            return{
+                ...newState,
+                favorites: newState.favoritesArr.filter((favorite)=>{
+                    return favorite.id===payload.id ? null : favorite;
+                    }
+                )
+            };
         case 'MODIFY-FAVORITE': //change favorites
-            newState=newState.map(currentfavorite=>{
-                if (currentfavorite.id===favorite.id){
-                    currentfavorite.name=favorite.name;
-                    currentfavorite.link=favorite.link;
-                }
-                return currentfavorite;
-            });
-            return newState;
+            return{
+                ...newState,
+                favorites: newState.favoritesArr.filter((favorite)=>{
+                    return favorite.id===payload.id ? payload : favorite;
+                })
+            };
         default:
             return newState;
     }

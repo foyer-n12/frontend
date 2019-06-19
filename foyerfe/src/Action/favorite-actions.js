@@ -3,7 +3,7 @@ import uuid from 'uuid';
 
 export const createFavorite = (favorite) =>{
     return{
-        type:'ADD_FAVORITE',
+        type:'ADD-FAVORITE',
         payload:{
             id:uuid(),
             name:favorite.name,
@@ -15,13 +15,13 @@ export const createFavorite = (favorite) =>{
 
 export const updateFavorite = (favorite)=>{
     return{
-        type: 'MODIFY_FAVORITE',
+        type: 'MODIFY-FAVORITE',
         payload: favorite,
     }
 };
 
 export const removeFavorite = (favorite) =>{
     return {
-        type: 'REMOVE_FAVORITE'
+        type: 'REMOVE-FAVORITE'
     }
 };

@@ -6,37 +6,22 @@ import * as favoritesActions from "../Action/favorite-actions";
 import {connect} from "react-redux";
 
 
-function mapStateToProps(state){
-    return {favorites: state.favorites};
-}
 
-const mapDispatchToProps=dispatch=>({
-    create: favorite=>{
-        return(dispatch(favoritesActions.createFavorite(favorite)));
-    },
-
-    update:favorite=>{
-        return(dispatch(favoritesActions.updateFavorite(favorite)));
-    },
-
-    delete:favorite=>{
-        return(dispatch(favoritesActions.removeFavorite(favorite)));
-    },
-});
 
 class Modal extends React.Component{
 
     renderForms() {
-        if (this.props.favorites.length > 0) {
+        console.log('rendering forms');
+        return(
             this.props.favorites.map((fav) => {
                     return (
-                        <li id={fav.id}>
+                        <li key={fav.id}>
                             <FavoritesForm favorite={fav}/>
                         </li>
                     )
                 }
             )
-        }
+        )
     };
 
     handleAdd=(event)=>{
@@ -72,4 +57,26 @@ class Modal extends React.Component{
     }
 }
 
+
+function mapStateToProps(state){
+    console.log(state);
+    return {favorites: state.favorites.favoritesArr};
+}
+
+const mapDispatchToProps=dispatch=>({
+    create: favorite=>{
+        return(dispatch(favoritesActions.createFavorite(favorite)));
+    },
+
+    update:favorite=>{
+        return(dispatch(favoritesActions.updateFavorite(favorite)));
+    },
+
+    delete:favorite=>{
+        return(dispatch(favoritesActions.removeFavorite(favorite)));
+    },
+});
+
+
 export default connect(mapStateToProps,mapDispatchToProps)(Modal);
+

@@ -4,5 +4,5 @@ import favorites from './favorites-reducer'
 
 export default combineReducers({
     token,
-    favorites,
+    favorites,//=[]
 });

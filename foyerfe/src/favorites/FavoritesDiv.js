@@ -6,10 +6,6 @@ import Modal from './Modal.js'
 import * as favoritesActions from '../Action/favorite-actions';
 import * as favorites from '../'
 
-function mapStateToProps(state){
-    return {favorites: state.favorites};
-}
-
 class FavoritesDiv extends Component {
 
     constructor(props){
@@ -30,12 +26,12 @@ class FavoritesDiv extends Component {
     renderFavorites() {
         if (this.props.favorites.length>0) {
             return (<div className={'TODO_BETTER_CLASS_NAME'}>
-                    {this.props.favorites.map(fav => {
+                    <div onClick={this.showModal.bind(this)}>
+                        <img src='../assets/edit.jpg' alt='edit'/>
+                    </div>                    {this.props.favorites.map(fav => {
                         return (
                             <Favorite
                                 favorite={fav}
-                                handleRemove={this.handleDelete}
-                                handleUpdate={this.handleUpdate}
                             />
                         )
                     })
@@ -62,4 +58,9 @@ class FavoritesDiv extends Component {
         )
     };
 }
+
+function mapStateToProps(state){
+    return {favorites: state.favorites.favoritesArr};
+}
+
 export default connect(mapStateToProps,null)(FavoritesDiv);
