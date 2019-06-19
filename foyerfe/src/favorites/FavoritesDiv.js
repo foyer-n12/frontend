@@ -4,7 +4,6 @@ import Favorite from './Favorite.js'
 import Modal from './Modal.js'
 
 import * as favoritesActions from '../Action/favorite-actions';
-import * as favorites from '../'
 
 class FavoritesDiv extends Component {
 

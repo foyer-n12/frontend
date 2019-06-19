@@ -8,7 +8,7 @@ export const createFavorite = (favorite) =>{
             id:uuid(),
             name:favorite.name,
             link:favorite.link,
-            created:new Date,
+            created:new Date(),
         }
     }
 };
