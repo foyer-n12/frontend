@@ -3,7 +3,7 @@ import SearchBar from '../searchBar/SearchBar'
 import Favorites from '../favorites/Favorites'
 import * as authActions from '../Action/auth-actions';
 import NoteDashboard from '../Notes/NoteDashboard';
-import SoundCloudWidget from '../SoundCloud/soundcloud'
+import SoundCloudWidget from '../SoundCloud/SoundCloud'
 
 import {connect} from 'react-redux';
 
@@ -25,7 +25,7 @@ export class Dashboard extends Component {
                 <SearchBar/>
                 <Favorites/>
                 <NoteDashboard/>
-                <SoundCloudWidget/>
+                <SoundCloudWidget soundCloudLink={this.state.soundCloudLink} linkPut={this.linkPut}/>
                <button onClick={this.handleLogout}>LogOut</button>
 
             </div>
