@@ -14,7 +14,7 @@ class AuthRedirect extends React.Component{
 
         if(pathname === '/signup' || pathname === '/login' || pathname === '/' || pathname==='/Dashboard') {
             if(token) {
-                console.log(pathname);
+                // console.log(pathname);
 
                 // Jerome - the user is already logged in
                 destinationRoute = '/Dashboard';
@@ -24,7 +24,7 @@ class AuthRedirect extends React.Component{
         } else if(!token) {
             destinationRoute = '/';
         }
-        console.log({destinationRoute});
+        // console.log({destinationRoute});
         return(
             <div>
                 {destinationRoute ? <Redirect to={destinationRoute}/> : undefined}
