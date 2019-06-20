@@ -8,7 +8,7 @@ export const createFavorite = (favorite) =>{
             id:uuid(),
             name:favorite.name,
             link:favorite.link,
-            created:new Date,
+            created:new Date(),
         }
     }
 };
@@ -22,6 +22,7 @@ export const updateFavorite = (favorite)=>{
 
 export const removeFavorite = (favorite) =>{
     return {
-        type: 'REMOVE-FAVORITE'
+        type: 'REMOVE-FAVORITE',
+        payload:favorite,
     }
 };
