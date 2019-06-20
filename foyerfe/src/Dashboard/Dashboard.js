@@ -25,7 +25,7 @@ export class Dashboard extends Component {
         return(
             <div>
                 <SearchBar/>
-                <Favorites/>
+                <FavoritesDiv/>
                 <NoteDashboard/>
                 <Clock/>
                 <DarkSky/>
