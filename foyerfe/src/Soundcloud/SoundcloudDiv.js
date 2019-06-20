@@ -22,19 +22,21 @@ class SoundcloudDiv extends Component {
         if (this.props.soundcloud) {
             let indexStart=this.props.soundcloud.indexOf('src');
             let parsed= this.props.soundcloud.substring(indexStart+5, this.props.soundcloud.length-11);
-            console.log(parsed);
-            return(
-                <iframe width="100%"
-                        height="450"
-                        scrolling="no"
-                        frameBorder="no"
-                        allow="autoplay"
-                        src={parsed}/>
-            )
-        /*
+            /*
         *
         * TODO: parse out the soundcloud code given by our user to make it render and maintain safety.
         * */
+            return(
+                <iframe
+                    title={'Soundcloud-Playlist'}
+                    width="100%"
+                    height="450"
+                    scrolling="no"
+                    frameBorder="no"
+                    allow="autoplay"
+                    src={parsed}
+                />
+            )
         }else{
             return(
                 <div onClick={this.showModal.bind(this)}>

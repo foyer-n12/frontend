@@ -27,7 +27,8 @@ class FavoritesDiv extends Component {
             return (<div className={'TODO_BETTER_CLASS_NAME'}>
                     <div onClick={this.showModal.bind(this)}>
                         <img src='../assets/edit.jpg' alt='edit'/>
-                    </div>                    {this.props.favorites.map(fav => {
+                    </div>
+                    {this.props.favorites.map(fav => {
                         return (
                             <Favorite
                                 favorite={fav}
@@ -51,6 +52,7 @@ class FavoritesDiv extends Component {
             <div className='favoritesDiv'>
                 <Modal
                     hideModal={this.hideModal.bind(this)}
+                    showModal={this.showModal.bind(this)}
                     visBool={this.state.editing}/>
                 {this.renderFavorites()}
             </div>

@@ -1,10 +1,8 @@
-import{createFavorite,updateFavorite,removeFavorite} from "../Action/favorite-actions";
 const initialFavoriteState = {
     favoritesArr:[],
 };
 
 export default (state = initialFavoriteState, {type, payload}) => {
-    console.log(state.favoritesArr);
     let newState=state;
     switch(type) {
         case 'ADD-FAVORITE': //LOGIN
@@ -25,7 +23,11 @@ export default (state = initialFavoriteState, {type, payload}) => {
             return{
                 ...newState,
                 favorites: newState.favoritesArr.filter((favorite)=>{
-                    return favorite.id===payload.id ? payload : favorite;
+                    if(payload.id===favorite.id) {
+                        return (payload)
+                    }else{
+                        return (favorite)
+                    }
                 })
             };
         default:

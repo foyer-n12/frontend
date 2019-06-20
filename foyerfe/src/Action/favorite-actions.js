@@ -22,6 +22,7 @@ export const updateFavorite = (favorite)=>{
 
 export const removeFavorite = (favorite) =>{
     return {
-        type: 'REMOVE-FAVORITE'
+        type: 'REMOVE-FAVORITE',
+        payload:favorite,
     }
 };
