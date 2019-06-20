@@ -1,21 +1,8 @@
-export function saveNote() {
+export function update(note) {
     return {
-        type: 'NOTE_SAVED',
+        type: 'UPDATE',
         payload: {
-            content,
+            note,
         },
-    }
-}
-
-export function clearNote() {
-    return {
-        type: 'NOTE_CLEAR',
-        payload: id
-    }
-}
-
-export function loadNote() {
-    return {
-        type: 'NOTE_LOAD',
     }
 }
