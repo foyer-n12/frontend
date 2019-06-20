@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SearchBar from '../searchBar/SearchBar'
+import SearchBar from '../searchBar/SearchBar';
+import Demo from '../Weather/Getlocation';
 import DarkSky from "../Weather/Weather";
 import Clock from "../Clock/Clock";
 import FavoritesDiv from '../favorites/FavoritesDiv'
@@ -25,9 +26,10 @@ export class Dashboard extends Component {
         return(
             <div>
                 <SearchBar/>
-                <Favorites/>
+                <FavoritesDiv/>
                 <NoteDashboard/>
                 <Clock/>
+                <Demo/>
                 <DarkSky/>
                 <button onClick={this.handleLogout}>LogOut</button>
             </div>
