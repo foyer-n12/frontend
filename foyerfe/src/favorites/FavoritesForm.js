@@ -41,6 +41,7 @@ class FavoritesForm extends React.Component {
                 this.props.hide();
                 this.props.show();
             }
+            )
         }
     };
 

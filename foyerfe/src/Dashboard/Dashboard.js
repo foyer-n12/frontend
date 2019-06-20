@@ -19,7 +19,7 @@ export class Dashboard extends Component {
     }
 
     handleLogout = () => {
-        this.props.logout();
+       return this.props.logout();
     };
 
     render() {
@@ -34,6 +34,7 @@ export class Dashboard extends Component {
                 <button onClick={this.handleLogout}>LogOut</button>
 
             </div>
+
         )
     }
 };
@@ -45,6 +46,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
+    console.log(dispatch);
     return {
         logout: () => {
              dispatch(authActions.remove());
