@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import SearchBar from '../searchBar/SearchBar'
+import DarkSky from "../Weather/Weather";
+import Clock from "../Clock/Clock";
 import FavoritesDiv from '../favorites/FavoritesDiv'
 import * as authActions from "../Action/auth-actions";
 import NoteDashboard from "../Notes/NoteDashboard";
 import {connect} from 'react-redux';
+
 
 
 export class Dashboard extends Component {
@@ -15,17 +18,20 @@ export class Dashboard extends Component {
     }
 
     handleLogout = () => {
-        this.props.logout();
+       return this.props.logout();
     };
 
     render() {
         return(
             <div>
                 <SearchBar/>
-                <Favorites/>
+                <FavoritesDiv/>
                 <NoteDashboard/>
+                <Clock/>
+                <DarkSky/>
                 <button onClick={this.handleLogout}>LogOut</button>
             </div>
+
         )
     }
 };
@@ -37,6 +43,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
+    console.log(dispatch);
     return {
         logout: () => {
              dispatch(authActions.remove());

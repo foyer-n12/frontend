@@ -28,12 +28,12 @@ class FavoritesForm extends React.Component {
         if (this.props.favorite){
             this.props.update(this.state)
         }else{
-            this.props.create({name: event.target.name.value, link: event.target.link.value})
+            this.props.create({name: event.target.name.value, link: event.target.link.value});
             this.setState({
                 name:'',
                 link:'',
-            )
             }
+            )
         }
 
 
