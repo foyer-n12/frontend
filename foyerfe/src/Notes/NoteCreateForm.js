@@ -1,5 +1,7 @@
 import React from 'react';
-import NoteDashboard from './NoteDashboard';
+import {connect} from 'react-redux';
+import * as noteActions from '../Action/note-actions';
+// import NoteDashboard from './NoteDashboard';
 
 
 
@@ -15,10 +17,15 @@ const NoteCreateForm = ({handleContent}) => (
             cols="30"
             rows="30"
         />
-
-
     </form>
-
 );
-
+//
+// const mapDispatchToProps = dispatch => ({
+//     create: notes => {return(dispatch(noteActions.saveNote(notes)));},
+//     delete: notes => {return(dispatch(noteActions.clearNote(notes)));}
+// clearNote
+// loadNote
+// });
 export default NoteCreateForm;
+
+// export default connect(null, mapDispatchToProps)(NoteCreateForm)

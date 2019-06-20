@@ -1,25 +1,20 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import NoteCreateForm from './NoteCreateForm';
 import NoteModal from './NoteModal'
 import uuidv1 from 'uuid/v1';
 import './Note.scss'
 
+import * as noteActions from '../Action/note-actions';
+
 export default class NoteDashboard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: [],
             content: '',
             isModalShowing: false
         };
     }
-
-    addNote = (content) => {
-        let id = uuidv1();
-        this.setState(prev => ({
-            notes: [...prev.notes,{content, id}],
-        }));
-    };
 
     handleContent = async (event) => {
         this.setState({content: event.target.value});
@@ -71,3 +66,9 @@ export default class NoteDashboard extends React.Component {
         )
     }
 }
+
+// function mapStateToProps(state){
+//     return {notes: state.content};
+// }
+//
+// export default connect(mapStateToProps,null)(NoteDashboard);

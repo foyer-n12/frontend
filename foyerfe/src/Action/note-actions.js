@@ -1,21 +1,26 @@
-export function saveNote() {
+export const saveNote = (note) => {
     return {
         type: 'NOTE_SAVED',
         payload: {
-            content,
+            // id:uuid(), is this needed here?
+            content:note.content,
+            modified: new Date,
         },
     }
-}
+};
 
-export function clearNote() {
+export const clearNote = (note) => {
     return {
         type: 'NOTE_CLEAR',
-        payload: id
     }
-}
+};
 
-export function loadNote() {
+export function loadNote(note) {
     return {
         type: 'NOTE_LOAD',
+        payload: {
+            content:note.content,
+            modified: new Date,
+        }
     }
 }

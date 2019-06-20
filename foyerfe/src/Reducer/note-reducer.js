@@ -1,16 +1,24 @@
-const initialState = null;
+import{saveNote, clearNote, loadNote} from "../Action/note-actions";
+const initialNoteState = {
+    content:'',
+};
 
-export default (state = initialState, {type, payload}) => {
-
-    const note = payload;
+export default (state = initialNoteState, {type, payload}) => {
+    console.log(state.content);
+    // const note = payload;
+    let newState = state;
     switch(type) {
         case 'NOTE_SAVED':
-            return {...state};
+            return {
+                ...newState.content = payload};
         case 'NOTE_CLEAR':
-            return null;
+            return {
+                ...newState,
+                notes: newState.content === '',
+            };
         case 'NOTE_LOAD':
-            return {...state};
+            return {...newState};
         default:
-            return state;
+            return newState;
     }
 };
