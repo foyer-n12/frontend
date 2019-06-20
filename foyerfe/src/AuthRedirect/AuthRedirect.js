@@ -18,6 +18,8 @@ class AuthRedirect extends React.Component{
 
                 // Jerome - the user is already logged in
                 destinationRoute = '/Dashboard';
+            } else {
+                destinationRoute = '/';
             }
         } else if(!token) {
             destinationRoute = '/';
