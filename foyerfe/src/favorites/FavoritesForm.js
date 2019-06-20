@@ -11,7 +11,7 @@ class FavoritesForm extends React.Component {
         } else {
             this.state = {
                 name:'',
-                link:''
+                link:'',
             };
         }
     }
@@ -32,8 +32,8 @@ class FavoritesForm extends React.Component {
             this.setState({
                 name:'',
                 link:'',
-            )
             }
+            )
         }
 
 
