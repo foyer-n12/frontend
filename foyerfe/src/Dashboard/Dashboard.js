@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchBar from '../searchBar/SearchBar'
 import DarkSky from "../Weather/Weather";
 import Clock from "../Clock/Clock";
+import SoundcloudDiv from "../Soundcloud/SoundcloudDiv"
 import FavoritesDiv from '../favorites/FavoritesDiv'
 import * as authActions from "../Action/auth-actions";
 import NoteDashboard from "../Notes/NoteDashboard";
@@ -29,7 +30,9 @@ export class Dashboard extends Component {
                 <NoteDashboard/>
                 <Clock/>
                 <DarkSky/>
+                <SoundcloudDiv/>
                 <button onClick={this.handleLogout}>LogOut</button>
+
             </div>
 
         )

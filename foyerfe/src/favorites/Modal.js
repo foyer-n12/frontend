@@ -10,13 +10,21 @@ import {connect} from "react-redux";
 
 class Modal extends React.Component{
 
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log(nextProps);
+    }
+
     renderForms() {
         console.log('rendering forms');
         return(
             this.props.favorites.map((fav) => {
                     return (
                         <li key={fav.id}>
-                            <FavoritesForm favorite={fav}/>
+                            <FavoritesForm favorite={fav}
+                                           hide={this.props.hideModal}
+                                           show={this.props.showModal}
+                                           id={fav.id}
+                            />
                         </li>
                     )
                 }
@@ -47,7 +55,9 @@ class Modal extends React.Component{
                 <div className="modal-main">
                     <ul>
                         <li>
-                            <FavoritesForm/>
+                            <FavoritesForm
+                            hide={this.props.hideModal}
+                            show={this.props.showModal}/>
                         </li>
                         {this.renderForms()}
                     </ul>
@@ -57,9 +67,7 @@ class Modal extends React.Component{
     }
 }
 
-
 function mapStateToProps(state){
-    console.log(state);
     return {favorites: state.favorites.favoritesArr};
 }
 
