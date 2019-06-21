@@ -7,7 +7,7 @@ import FavoritesDiv from '../favorites/FavoritesDiv'
 import * as authActions from "../Action/auth-actions";
 import NoteDashboard from "../Notes/NoteDashboard";
 import {connect} from 'react-redux';
-
+import "./Dashboard.scss";
 
 
 export class Dashboard extends Component {
@@ -24,14 +24,17 @@ export class Dashboard extends Component {
 
     render() {
         return(
-            <div>
-              <Clock/>
-              <Location/>
-                <SearchBar/>
-                <FavoritesDiv/>
-                <NoteDashboard/>
+            <main>
+              <header>
                 <button onClick={this.handleLogout}>LogOut</button>
-            </div>
+              </header>
+              <body>
+                <FavoritesDiv/>
+                <Clock/>
+                <Location/>
+                <NoteDashboard/>
+              </body>
+            </main>
         )
     }
 };
