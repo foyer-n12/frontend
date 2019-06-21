@@ -1,7 +1,10 @@
 textarea{
+  text: bold;
   border: none;
   background-color: lemonchiffon;
   font-face: 'Comic Sans';
 //  Note that this is not friendly to access users, keyboard feedback not present!
   outline: none;
+  background: linear-gradient( white, lemonchiffon, white);
+  text-align: left;
 }

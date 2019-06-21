@@ -25,11 +25,11 @@ export class Dashboard extends Component {
     render() {
         return(
             <div>
+              <Clock/>
+              <Location/>
                 <SearchBar/>
                 <FavoritesDiv/>
                 <NoteDashboard/>
-                <Clock/>
-                <Location/>
                 <button onClick={this.handleLogout}>LogOut</button>
             </div>
         )
