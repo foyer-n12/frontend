@@ -34,15 +34,15 @@ class FavoritesForm extends React.Component {
             } else {
                 this.props.create({name: event.target.name.value, link: event.target.link.value});
                 this.setState({
-                        name: '',
-                        link: '',
-                    }
-                );
+                    name: '',
+                    link: '',
+                }
+            )
+            }
                 this.props.hide();
                 this.props.show();
+
             }
-            )
-        }
     };
 
     handleDelete(event){
