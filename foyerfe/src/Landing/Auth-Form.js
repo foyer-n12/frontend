@@ -54,7 +54,7 @@ handleChange = (event) => {
 
         return (
             <form name="form" onSubmit={this.handleSubmit}>
-                <Form.Group controlId="formBasicuUsername">
+                <Form.Group controlId="formBasicUsername">
                 <Form.Label htmlFor="username">Username</Form.Label>
                 <Form.Control
                    placeholder="Enter Username"
