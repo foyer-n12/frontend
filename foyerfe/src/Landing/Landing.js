@@ -2,14 +2,13 @@ import React from 'react';
 import * as authActions from '../Action/auth-actions';
 import {Link} from "react-router-dom";
 import AuthForm from "./Auth-Form";
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Button from 'react-bootstrap/Button';
+import {Label} from 'reactstrap';
 
-import TextField from 'material-ui/TextField';
-import Register from '../Landing/Register';
 
 import {connect} from 'react-redux';
 import {ButtonToolbar} from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Landing extends React.Component{
 
@@ -20,49 +19,44 @@ class Landing extends React.Component{
         return this.props.pDoLogin(user.username, user.password);
     };
 
-    // handleLogout = (user) => {
-    //     return this.props.pDoLogout(user.username, user.password);
-    // };
-
     render() {
 
         const rootJSX =
-            <div  className="col-md-6 col-md-offset-3">
-                {/*<MuiThemeProvider>*/}
-                    <div>
-                        <label htmlFor="username"><h1>Welcome</h1></label>
-                        <ButtonToolbar>
-                        <Link to='/signup'>
+            {/*<div className="main">*/}
+            {/*        <div>*/}
+                        {/*<span className="greeting"><h1>Welcome</h1></span>*/}
+                        {/*<ButtonToolbar>*/}
+                        {/*<Link to='/signup'>*/}
                     {/* eslint-disable-next-line react/jsx-no-undef */}
-                    <Button variant="primary"> Sign up</Button>
-                </Link>
-                        </ButtonToolbar>
+                    {/*<Button className="btn-lg btn-blue btn-block" className="btn"> Sign up</Button>*/}
+                {/*</Link>*/}
+                {/*        </ButtonToolbar>*/}
 
-                        <br/>
+                {/*<Link to='/login'>*/}
+                {/*    <button type="button"> Login</button>*/}
+                {/*</Link>*/}
 
-                <Link to='/login'>
-                    <button type="button"> Login</button>
-                </Link>
+            {/*</div>*/}
 
-            </div>
-        {/*</MuiThemeProvider>*/}
-            </div>;
+            {/*</div>;*/}
 
         const signUpJSX =
             <div>
-                <label> <h1>Sign Up</h1></label>
+                <h1 className="sign">Sign Up</h1>
                 <AuthForm type='signup' onComplete={this.handleSignup}/>
-                <Link to='/login' clasName="btn-link">Cancel </Link>
+                <Link to='/login' clasName="btn-link">Back to Log In </Link>
             </div>;
 
         const loginJSX =
             <div>
-                <label> <h1>Login</h1></label>
+                <h1 className="login">Log In</h1>
 
                 <AuthForm type='login' onComplete={this.handleLogin}/>
                 <Link to='/signup'>
                     <div>
-                        <button>SignUp</button>
+                        <Button className="btn-lg btn-dark btn-block"  type='submit'>Sign Up</Button>
+
+                        {/*<button>SignUp</button>*/}
 
                     </div>
                 </Link>
@@ -72,9 +66,8 @@ class Landing extends React.Component{
         return(
             <div>
                 <nav>
-                    {location.pathname === '/' ? rootJSX : undefined }
-                    {location.pathname === '/signup' ? signUpJSX : undefined }
                     {location.pathname === '/login' ? loginJSX : undefined }
+                    {location.pathname === '/signup' ? signUpJSX : undefined }
                 </nav>
             </div>
         );

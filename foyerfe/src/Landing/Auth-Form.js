@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-
-// import AppBar from 'material-ui/AppBar';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-import {AuthLanding} from "./Landing";
-import App from "../App";
-import Register from "./Register";
+import {Button, FormGroup, Label, Input} from 'reactstrap';
+import '../App.css'
 
 const defaultState = {username: '', password: '', submitted: false};
 
@@ -36,51 +29,48 @@ handleChange = (event) => {
     render() {
         //Jerome - type is going to tell me if my form is a login or a signup
         let {type} = this.props;
-        type = type === 'login' ? 'login' : 'signup' || 'logout';
+        type = type === 'login' ? 'login' : 'signup';
 
         const emailJSX =
-            <Form name="form" onSubmit={this.handleSubmit}>
-                <Form.Group controlId="formBasicuEmail">
-                    <Form.Label htmlFor="username">Email</Form.Label>
-                    <Form.Control
-                    name='email'
+            <form className="login-form" onSubmit={this.handleSubmit}>
+                <FormGroup>
+                    <Label htmlFor="email">Email</Label>
+                    <Input
                     placeholder='email'
-                    type='email'
+                    name='email'
                     value={this.state.email}
                     onChange={this.handleChange}
                 />
-                </Form.Group>
-            </Form>
+                </FormGroup>
+            </form>
 
         return (
-            <form name="form" onSubmit={this.handleSubmit}>
-                <Form.Group controlId="formBasicuUsername">
-                <Form.Label htmlFor="username">Username</Form.Label>
-                <Form.Control
+            <form className="login-form" onSubmit={this.handleSubmit}>
+                <FormGroup>
+                <Label htmlFor="username">Username</Label>
+                <Input
                    placeholder="Enter Username"
                     name='username'
                     type="text"
                     value={this.state.username}
                     onChange={this.handleChange}
                 />
-                </Form.Group>
+                </FormGroup>
 
                 {type !== 'login' ? emailJSX : undefined}
 
-                <Form.Group controlId="formBasicuPassword">
-
-                    <Form.Label htmlFor="password">Password</Form.Label>
-
-                    <Form.Control
+                <FormGroup>
+                    <Label htmlFor="password">Password</Label>
+                    <Input
                     placeholder='password'
                     name="password"
                     type='password'
                     value={this.state.password}
                     onChange={this.handleChange}
                 />
-                </Form.Group>
+                </FormGroup>
 
-                <Button variant="primary" type='submit'>{type}</Button>
+                <Button className="btn-lg btn-dark btn-block" type='submit'>{type}</Button>
             </form>
         );
     }
