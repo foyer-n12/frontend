@@ -1,4 +1,3 @@
-import superagent from 'superagent';
 import uuid from 'uuid';
 
 export const createFavorite = (favorite) =>{

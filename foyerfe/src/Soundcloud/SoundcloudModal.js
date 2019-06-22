@@ -44,6 +44,8 @@ class Modal extends React.Component{
         return(
             <div className={showOrHide}>
                 <div className="modal-main">
+                    <h1>Adding a Soundcloud playlist to your homepage</h1>
+                    <h3>Start by navigating to your preferred playlisf on soundcloud.com</h3>
                         {this.renderForm()}
                 </div>
                 <button onClick={hideModal}/>

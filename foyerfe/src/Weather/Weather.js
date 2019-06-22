@@ -1,21 +1,29 @@
 import React from 'react';
+import {geolocated} from 'react-geolocated';
 import './Weather.scss';
+import "../styles/_vars.scss";
 
-export default class DarkSkyWidget extends React.Component {
-  constructor(props) {
-    super(props);
 
-  }
+class Location extends React.Component {
 
-  render() {
-    return (
-        <div className="hack">
-          <iframe id="forecast_embed" frameBorder="0" height="240" width="100%"
-                  src="//forecast.io/embed/#lat=47.6182769&lon=-122.3516573&name=Seattle, WA">
-          </iframe>
-          </div>
-
-    )
+    render() {
+        return !this.props.isGeolocationAvailable
+            ? <div>Your browser does not support Geolocation</div>
+            : !this.props.isGeolocationEnabled
+                ? <div>Geolocation is not enabled</div>
+                : this.props.coords
+                    ? <div className="hack">
+                        <iframe id="forecast_embed" frameBorder="0" height="240px" width={'100%'}
+                                src={`//forecast.io/embed/#lat=${this.props.coords.latitude}&lon=${this.props.coords.longitude}`}>
+                        </iframe>
+                    </div>
+                    : <div>Getting your location data&hellip; </div>;
     }
-  }
+}
 
+export default geolocated({
+    positionOptions: {
+        enableHighAccuracy: false,
+    },
+    userDecisionTimeout: 5000,
+})(Location);
