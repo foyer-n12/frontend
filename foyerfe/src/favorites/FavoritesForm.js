@@ -26,7 +26,7 @@ class FavoritesForm extends React.Component {
     handleSubmit = event =>{
         event.preventDefault();
         if (this.props.favorite){
-            this.props.update(this.state)
+            this.props.update(this.state).then(console.log('store updated'));
         }else{
             this.props.create({name: event.target.name.value, link: event.target.link.value});
             this.setState({

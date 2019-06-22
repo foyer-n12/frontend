@@ -1,0 +1,18 @@
+@import '../styles/_vars.scss';
+#favoritesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  .favorite {
+    flex-grow:1;
+    button {
+      line-height: 75px;
+      width:100%;
+      font-size:50px;
+      background-color: $text-color;
+      color: $background-color;
+    }
+  }
+}
+

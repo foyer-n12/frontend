@@ -6,8 +6,12 @@ import SoundcloudDiv from "../Soundcloud/SoundcloudDiv"
 import FavoritesDiv from '../favorites/FavoritesDiv'
 import * as authActions from "../Action/auth-actions";
 import NoteDashboard from "../Notes/NoteDashboard";
-import {connect} from 'react-redux';
+import { Button } from 'reactstrap';
 
+import {connect} from 'react-redux';
+import './Dashboard.scss'
+import equal from 'fast-deep-equal'
+import superagent from 'superagent';
 
 
 export class Dashboard extends Component {
@@ -24,23 +28,35 @@ export class Dashboard extends Component {
 
     render() {
         return(
-            <div>
-                <SearchBar/>
-                <FavoritesDiv/>
-                <NoteDashboard/>
-                <Clock/>
-                <DarkSky/>
-                <SoundcloudDiv/>
-                <button onClick={this.handleLogout}>LogOut</button>
-
-            </div>
-
+            <main>
+                <div>
+                    <header>
+                        <Button onClick={this.handleLogout}>Log Out</Button>
+                    </header>
+                    <body>
+                    <div id="left">
+                        <Clock/>
+                        <FavoritesDiv/>
+                    </div>
+                    <div id='middle'>
+                        <SearchBar/>
+                        <DarkSky/>
+                        <SoundcloudDiv/>
+                    </div>
+                    <div id='right'>
+                        <NoteDashboard/>
+                    </div>
+                    </body>
+                </div>
+            </main>
         )
     }
 };
 
 const mapStateToProps = state => {
     return {
+        favorites:state.favoritesArr,
+        soundcloud:state.soundcloud,
         authActions: state.token,
     }
 };

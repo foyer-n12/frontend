@@ -1,0 +1,31 @@
+.login-form {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+    height: 100%;
+    margin-top: 150px;
+}
+
+p {
+    text-align: center;
+    /*backdrop-filter: blur(5px) contrast(12);*/
+    backdrop-filter: opacity(.4);
+}
+
+.sign {
+    text-align: center;
+}
+
+#foyer {
+    text-align: center;
+}
+
+
+.but {
+     float: right;
+      margin-top: -55px;
+     margin-left: 5px;
+    background-color: #343A40;
+    color: #FFFFFF;
+}
