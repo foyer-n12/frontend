@@ -2,10 +2,13 @@
 
 
 #searchbar {
+  color:$text-color;
+
   button {
+    //color:$blue;
+    background-color: $pane-color;
     border-radius: 25px;
     border: 0 solid;
-    background-color: $pane-color;
     font-size: 25px;
   }
   form {
@@ -14,12 +17,14 @@
     align-items: center;
     justify-content: center;
     input {
+      color:$text-color;
       border-radius: 25px;
       border: 0 solid;
       line-height: 40px;
       font-size: 20px;
       width: 60%;
       background: $pane-color;
+      border-bottom: #979797 thin solid;
     }
   }
 }
