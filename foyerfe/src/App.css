@@ -1,0 +1,28 @@
+.login-form {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+    height: 100%;
+}
+
+.sign {
+    text-align: center;
+}
+
+/*.signup {*/
+/*    width: 100%;*/
+/*    max-width: 330px;*/
+/*    padding: 15px;*/
+/*    margin: auto;*/
+/*    height: 100%;*/
+/*}*/
+
+.btn-link {
+    text-align: center;
+}
+
+.login {
+    text-align: center;
+}
+
