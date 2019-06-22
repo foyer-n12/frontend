@@ -4,29 +4,21 @@
     padding: 15px;
     margin: auto;
     height: 100%;
+    margin-top: 150px;
+}
+
+p {
+    text-align: center;
+    /*backdrop-filter: blur(5px) contrast(12);*/
+    backdrop-filter: opacity(.4);
 }
 
 .sign {
     text-align: center;
 }
 
-/*.signup {*/
-/*    width: 100%;*/
-/*    max-width: 330px;*/
-/*    padding: 15px;*/
-/*    margin: auto;*/
-/*    height: 100%;*/
-/*}*/
-
-.btn-link {
+#foyer {
     text-align: center;
-}
-
-.login {
-    text-align: center;
-}
-    margin-top: 250px;
-
 }
 
 
