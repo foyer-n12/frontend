@@ -1,66 +1,63 @@
-import React, { Component } from 'react';
-import AppBar from 'material-ui/AppBar';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-import App from "../App";
+import React from 'react';
+import * as authActions from '../Action/auth-actions';
+import {Link} from "react-router-dom";
+import AuthForm from "./Auth-Form";
+import Button from 'react-bootstrap/Button';
+import {connect} from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default class Landing extends Component {
-    constructor(props){
-        super(props);
-        this.state={
-            username:'',
-            password:''
-        }
-    }
+class Landing extends React.Component{
 
-    // handleInputChange(e){
-    //     // Jerome - this enables you to update the input fields
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
-    //
-    // handleOnChange(e){
-    //     // Jerome - this is where you mutate the state
-    //     e.preventDefault();
-    //     const user = {
-    //         username: this.state.username,
-    //         password: this.state.password,
-    //     };
-    //     console.log(user);
-    // }
+    handleSignup = (user) => {
+        return this.props.pDoSignUp(user);
+    };
+    handleLogin = (user) => {
+        return this.props.pDoLogin(user.username, user.password);
+    };
 
     render() {
-        return (
+
+        const signUpJSX =
+            <div className="login">
+                <h1 className="sign">Foyer</h1>
+                <AuthForm type='signup' onComplete={this.handleSignup}/>
+            </div>;
+
+        const loginJSX =
+            <div className="login">
+                <h1 id="foyer">Foyer</h1>
+                <Link to='/signup'>
+                    <div>
+                        <Button className="btn-dark btn-md" className="but" type='submit'>Sign Up</Button>
+                    </div>
+                </Link>
+                <AuthForm type='login' onComplete={this.handleLogin}/>
+            </div>;
+
+        const {location} = this.props;
+        return(
             <div>
-                <MuiThemeProvider>
-                    <AppBar
-                        title="Login"
-                    />
-                    <TextField
-                        hintText="Please enter your Username"
-                        floatingLabelText="Username"
-                        onChange={(event,newValue) =>
-                        this.setState({username:newValue})}
-                        // onChange={this.handleInputChange}
-                        // value={this.handleOnChange}
-                        />
-                        <br/>
-                        <TextField
-                            hintText="Please enter your Password"
-                            floatingLabelText="Password"
-                            onChange={(event,newValue) =>
-                                this.setState({password:newValue})}
-                            // onChange={this.handleInputChange}
-                            // value={this.handleOnChange}
-                            />
-                            <br/>
-                            <RaisedButton label="Sign In" primary={true} onClick={(event) => this.handleClick(event)}/>
-                </MuiThemeProvider>
+                <nav>
+                    {location.pathname === '/login' ? loginJSX : undefined }
+                    {location.pathname === '/signup' ? signUpJSX : undefined }
+                </nav>
             </div>
         );
-
     }
+}
 
-};
+//Jerome - I want to create a function that starts an async action
+//Jerome - this p means that the function returns promise
+const mapDispatchToProps = dispatch => ({
+    pDoSignUp: user => {
+        return dispatch(authActions.signupRequest(user))
+    },
+    pDoLogin: (username, password) => {
+        return dispatch(authActions.loginRequest(username, password))
+    },
+    // pDoLogout: (username, password) => {
+    //     return dispatch(authActions.logutRequest(username, password))
+    // },
+});
+
+export default connect(null, mapDispatchToProps)(Landing);

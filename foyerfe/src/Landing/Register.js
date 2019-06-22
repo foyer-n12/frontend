@@ -3,34 +3,41 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import Landing from './Landing';
+import AuthForm from './Auth-Form';
 
 export default class Register extends Component {
     constructor(){
         super();
         this.state = {
-            name: '',
+            firstName: '',
+            lastName: '',
+            username: '',
             email: '',
             password: '',
-            password_confirm: ''
+            password_confirm: '',
+            submitted: false
         }
-    }
-    handleInputChange(){
 
     }
-
-    handleSubmit(){
-
+    // handleInputChange(){
+    //
+    // }
+    //
+    // handleSubmit(){
+    //
+    // }
+    handleClick(event){
+        console.log(event);
     }
 
     render(){
         return(
-            <div>
+
                 <MuiThemeProvider>
                     <div>
-                        <AppBar
-                            title="Register"
-                            />
+                        {/*<AppBar*/}
+                        {/*    title="Register"*/}
+                        {/*    />*/}
                             <TextField
                                 hintText="Enter your First Name"
                                 floatingLabelText="First Name"
@@ -61,10 +68,9 @@ export default class Register extends Component {
                                         this.setState({password:newValue})}
                                         />
                                         <br/>
-                                        <RaisedButton label="Sing Up" primary={true}/>
+                                        <RaisedButton label="Sing Up" secondary={true} onClick={(event) => this.handleClick(event)}/>
                     </div>
                 </MuiThemeProvider>
-            </div>
         )
     }
 }

@@ -1,0 +1,30 @@
+@import '../Styles/_vars.scss';
+#favoritesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  .favorite {
+    flex-grow:1;
+    #editFavorites{
+      background-color: $pane-color;
+      h2{
+        background-color: $pane-color;
+      }
+    }
+
+    button {
+      line-height: 50px;
+      width:100%;
+      font-size:35px;
+      background-color: $pane-color;
+      color: $text-color;
+    }
+
+    button:hover{
+      color:$blue;
+      text-decoration: underline;
+    }
+  }
+}
+

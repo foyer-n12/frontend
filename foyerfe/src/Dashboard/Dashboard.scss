@@ -1,0 +1,125 @@
+@import "../styles/_vars.scss";
+*{
+  background-color: $background-color;
+  color:$text-color;
+  font-family: $font;
+}
+
+main{
+  header{
+    display:flex;
+    flex-direction: row-reverse;
+    button{
+      background-color: $pane-color;
+    }
+  }
+  body{
+    h1{
+      background-color: $pane-color;
+    }
+    width:100%;
+    height:88%;
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items:stretch;
+    div {
+      border-radius: 12px;
+      margin:5px;
+      background-color: $pane-color;
+    }
+    section{
+      display:flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+    }
+    #left{
+      display:flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      flex-grow:1;
+      #editFavorites {
+        background-color: $pane-color;
+        h2 {
+          background-color: $pane-color;
+        }
+      }
+      h1 {
+        font-size: 25px;
+        text-align: center;
+      }
+
+      button {
+        background-color: $background-color;
+      }
+
+      .favoritesDiv{
+        min-height:500px;
+      }
+
+      #favorite{
+        button {
+          background-color: $pane-color;
+        }
+      }
+      #editFavorites{
+        background-color: $pane-color;
+      }
+
+    }
+    #middle{
+      text-align: center;
+      iframe{
+        padding-top:0;
+        background-color: $pane-color;
+        font:$font;
+      }
+      flex-grow:23;
+      display:flex;
+      flex-direction:column;
+      align-items:stretch;
+      .soundcloudDiv{
+        min-height:450px;
+      }
+    }
+    #right{
+      textarea{
+        padding:8px;
+        border-radius:12px;
+        flex-grow:14;
+        font-size:18px;
+        color: $text-color;
+        border: none;
+        background-color: $pane-color;
+        outline: none;
+        resize:none;
+      }
+      #noteDiv{
+        background-color: $pane-color;
+        display:flex;
+        flex-direction: column;
+        #noteButtons{
+          display:flex;
+          flex-flow:column-reverse;
+          align-content: center;
+        }
+        #nbd{
+          display:flex;
+          flex-flow: row;
+          justify-content: space-around;
+        }
+        .note-modal{
+          max-width: 280px;
+        }
+        button{
+          padding-right: 10px;
+          padding-left:10px;
+          border-radius:12px;
+          background-color: $pane-color;
+        }
+      }
+    }
+  }
+}
