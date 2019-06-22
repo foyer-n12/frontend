@@ -13,12 +13,10 @@ export default class Favorite extends Component {
         window.open(this.state.link,'_blank');
     }
 
-
-
     render() {
         return(
             <div className={'favorite'}>
-                 <button type='button' onClick={this.click.bind(this)}>{this.props.name}</button>
+                 <button type='button' onClick={this.click.bind(this)}>{this.props.favorite.name}</button>
             </div>
         )
     }

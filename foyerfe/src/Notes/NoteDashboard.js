@@ -51,21 +51,24 @@ export default class NoteDashboard extends React.Component {
 
     render(){
         return(
-            <div>
+            <div id={'noteDiv'}>
                 <NoteCreateForm
                     notes={this.state.notes}
                     handleContent={this.handleContent}
                     handleClear={this.handleClear}
                 />
-                {this.state.isModalShowing && (
-                <NoteModal
-                    handleClear={this.handleClear}
-                    hideModal={this.hideModal}
-                />
-                )}
-                <button onClick={this.showModal}>Clear</button>
-                <button onClick={this.handlePrint}>Print</button>
-
+                <container id={'noteButtons'}>
+                    {this.state.isModalShowing && (
+                        <NoteModal
+                            handleClear={this.handleClear}
+                            hideModal={this.hideModal}
+                        />
+                    )}
+                    <section id={'nbd'}>
+                    <button onClick={this.showModal}>Clear</button>
+                    <button onClick={this.handlePrint}>Print</button>
+                    </section>
+                </container>
             </div>
         )
     }

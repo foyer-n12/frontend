@@ -24,7 +24,7 @@ class FavoritesDiv extends Component {
             return (<div className={'TODO_BETTER_CLASS_NAME'}>
                         <div id={'editFavorites'}
                             onClick={this.showModal.bind(this)}>
-                            <img src='../assets/edit.jpg' alt='edit'/>
+                            <h2>Edit Favorites</h2>
                         </div>
                         <div id = 'favoritesContainer'>
                             {this.props.favorites.map(fav => {

@@ -36,18 +36,25 @@ class Modal extends React.Component{
     handleComplete=(event)=>{
         event.preventDefault();
         this.props.update(this.state.link);
+        this.props.hideModal();
     };
 
     render(){
         const showOrHide = this.props.visBool ? 'modal display-block' : 'modal display-none';
         const hideModal = this.props.hideModal;
         return(
-            <div className={showOrHide}>
-                <div className="modal-main">
-                        {this.renderForm()}
-                </div>
+            <section className={showOrHide}>
+                <section className="modal-main">
+                    <p>
+                        To get an embed code for your track or playlist,
+                        click the 'Share' button below the waveform and an overlay will appear.
+                        Click on the embed tab to view what options you have to embed your player.
+                        Copy-paste the embed code from 'Code & preview'.
+                    </p>
+                    {this.renderForm()}
+                </section>
                 <button onClick={hideModal}/>
-            </div>);
+            </section>);
     }
 }
 
