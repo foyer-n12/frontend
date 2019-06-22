@@ -25,4 +25,15 @@
 .login {
     text-align: center;
 }
+    margin-top: 250px;
 
+}
+
+
+.but {
+     float: right;
+      margin-top: -55px;
+     margin-left: 5px;
+    background-color: #343A40;
+    color: #FFFFFF;
+}

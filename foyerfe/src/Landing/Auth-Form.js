@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import {Button, FormGroup, Label, Input} from 'reactstrap';
 import '../App.css'
-
+import form from 'react-bootstrap/Form';
+import {Button, FormGroup, Label, Input} from 'reactstrap';
+import '../App.css'
+import {Link} from "react-router-dom";
+import { GoogleLoginButton } from 'react-social-login-buttons';
 const defaultState = {username: '', password: '', submitted: false};
 
 export default class AuthForm extends Component {
@@ -26,13 +30,17 @@ handleChange = (event) => {
     };
 
 
+
+
     render() {
+
         //Jerome - type is going to tell me if my form is a login or a signup
         let {type} = this.props;
         type = type === 'login' ? 'login' : 'signup';
 
         const emailJSX =
             <form className="login-form" onSubmit={this.handleSubmit}>
+            <form className="email-form" onSubmit={this.handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="email">Email</Label>
                     <Input
@@ -50,7 +58,6 @@ handleChange = (event) => {
                 <FormGroup>
                 <Label htmlFor="username">Username</Label>
                 <Input
-
                    placeholder="Enter Username"
                     name='username'
                     type="text"
@@ -71,8 +78,11 @@ handleChange = (event) => {
                     onChange={this.handleChange}
                 />
                 </FormGroup>
-
                 <Button className="btn-lg btn-dark btn-block" type='submit'>{type}</Button>
+                <div className="text-center pt-3"> Or continue with your social account</div>
+                <GoogleLoginButton onClick={() => alert("Hello")} className="mt-3 mb" className="google"/>
+
+                {type!=='login' ? <Link to='/login' clasName="btn-link">Back to Log In </Link>:null}
             </form>
         );
     }

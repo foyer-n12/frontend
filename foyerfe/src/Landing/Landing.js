@@ -5,6 +5,8 @@ import AuthForm from "./Auth-Form";
 import Button from 'react-bootstrap/Button';
 import {Label} from 'reactstrap';
 
+
+
 import {connect} from 'react-redux';
 import {ButtonToolbar} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,7 +21,6 @@ class Landing extends React.Component{
     };
 
     render() {
-
         const rootJSX =
 
             <div  className="col-md-6 col-md-offset-3">
@@ -61,8 +62,21 @@ class Landing extends React.Component{
 
                         {/*<button>SignUp</button>*/}
 
+        const signUpJSX =
+            <div className="login">
+                <h1 className="sign">Foyer</h1>
+                <AuthForm type='signup' onComplete={this.handleSignup}/>
+            </div>;
+
+        const loginJSX =
+            <div className="login">
+                <h1 id="foyer">Foyer</h1>
+                <Link to='/signup'>
+                    <div>
+                        <Button className="btn-dark btn-md" className="but" type='submit'>Sign Up</Button>
                     </div>
                 </Link>
+                <AuthForm type='login' onComplete={this.handleLogin}/>
             </div>;
 
         const {location} = this.props;
