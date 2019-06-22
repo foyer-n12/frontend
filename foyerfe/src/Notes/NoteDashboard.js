@@ -2,7 +2,6 @@ import React from 'react';
 import NoteCreateForm from './NoteCreateForm';
 import NoteModal from './NoteModal'
 import uuidv1 from 'uuid/v1';
-import './Note.scss'
 
 export default class NoteDashboard extends React.Component {
     constructor(props) {
