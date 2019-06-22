@@ -1,6 +1,7 @@
 import React from 'react';
 import './Weather.scss';
 
+/* DarkSky Widget Component */
 export default class DarkSkyWidget extends React.Component {
   constructor(props) {
     super(props);

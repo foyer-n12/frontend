@@ -4,8 +4,16 @@ import AuthLanding from './Landing/Landing';
 import Dashboard from './Dashboard/Dashboard';
 import AuthRedirect from './AuthRedirect/AuthRedirect';
 
+/**
+ * This contains our main React app component
+ */
 export default class App extends React.Component {
 
+    /**
+     * Renders Login or Signup depending on user request.
+     * If a token exists, it passes the user to the Dashboard.
+     * @returns {*}
+     */
     render(){
         return(
             <div>

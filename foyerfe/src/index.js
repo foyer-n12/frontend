@@ -8,7 +8,9 @@ import App from './App';
 
 const store = createApplicationStore();
 
-
+/**
+ * This establishes the Provider for our App's use of Redux
+ */
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
 
