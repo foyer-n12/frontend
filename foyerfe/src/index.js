@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import './styles/main.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/main.scss';
-
 import createApplicationStore from './create-store';
 import App from './App';
 

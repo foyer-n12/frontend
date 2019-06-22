@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import Form from 'react-bootstrap/Form';
+import {Button, FormGroup, Label, Input} from 'reactstrap';
+import '../App.css'
 import form from 'react-bootstrap/Form';
 import {Button, FormGroup, Label, Input} from 'reactstrap';
 import '../App.css'
 import {Link} from "react-router-dom";
 import { GoogleLoginButton } from 'react-social-login-buttons';
-
-
-
 const defaultState = {username: '', password: '', submitted: false};
 
 export default class AuthForm extends Component {
@@ -39,7 +39,7 @@ handleChange = (event) => {
         type = type === 'login' ? 'login' : 'signup';
 
         const emailJSX =
-
+            <form className="login-form" onSubmit={this.handleSubmit}>
             <form className="email-form" onSubmit={this.handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="email">Email</Label>
@@ -78,7 +78,6 @@ handleChange = (event) => {
                     onChange={this.handleChange}
                 />
                 </FormGroup>
-
                 <Button className="btn-lg btn-dark btn-block" type='submit'>{type}</Button>
                 <div className="text-center pt-3"> Or continue with your social account</div>
                 <GoogleLoginButton onClick={() => alert("Hello")} className="mt-3 mb" className="google"/>
