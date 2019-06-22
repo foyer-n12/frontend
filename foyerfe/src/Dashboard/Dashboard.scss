@@ -1,4 +1,4 @@
-@import "../Styles/_vars.scss";
+@import "../styles/_vars.scss";
 *{
   background-color: $background-color;
   color:$text-color;
@@ -36,7 +36,7 @@ main{
       align-items:stretch;
 
       SearchBar{
-        color:$google-search-color;
+        //color:$google-search-color;
       }
       DarkSky{
       }

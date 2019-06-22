@@ -6,6 +6,8 @@ import SoundcloudDiv from "../Soundcloud/SoundcloudDiv"
 import FavoritesDiv from '../favorites/FavoritesDiv'
 import * as authActions from "../Action/auth-actions";
 import NoteDashboard from "../Notes/NoteDashboard";
+import { Button } from 'reactstrap';
+
 import {connect} from 'react-redux';
 import './Dashboard.scss'
 import equal from 'fast-deep-equal'
@@ -30,7 +32,7 @@ export class Dashboard extends Component {
             <main>
                 <div>
                     <header>
-                        <button onClick={this.handleLogout}>LogOut</button>
+                        <Button onClick={this.handleLogout}>Log Out</Button>
                     </header>
                     <body>
                     <div id="left">
