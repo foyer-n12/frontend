@@ -1,0 +1,60 @@
+@import "../Styles/_vars.scss";
+*{
+  background-color: $background-color;
+  color:$text-color;
+  font-family: $font;
+}
+
+main{
+  body{
+    width:100%;
+    height:88%;
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items:stretch;
+    div {
+      border-radius: 12px;
+      margin:5px;
+    }
+    #left{
+      display:flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      flex-grow:1;
+    }
+    #middle{
+      iframe{
+        padding-top:0;
+        background-color: $text-color;
+        font:$font;
+      }
+      flex-grow:23;
+      display:flex;
+      flex-direction:column;
+      align-items:stretch;
+
+      SearchBar{
+        color:$google-search-color;
+      }
+      DarkSky{
+      }
+      SoundcloudDiv{
+      }
+    }
+    #right{
+      textarea{
+        flex-grow:14;
+        font-size:14px;
+        color:$text-color;
+        border: none;
+        background-color: $pane-color;
+        font-face: 'Comic Sans';
+        //  Note that this is not friendly to access users, keyboard feedback not present!
+        outline: none;
+        resize:none;
+      }
+    }
+  }
+}

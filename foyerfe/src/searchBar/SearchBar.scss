@@ -1,0 +1,28 @@
+@import '../Styles/_vars.scss';
+
+
+#searchbar {
+  color: $google-search-color;
+  button {
+    border-radius: 25px;
+    border: 0 solid;
+    background-color: $pane-color;
+    font-size: 25px;
+    color: $google-search-color;
+  }
+  form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: $google-search-color;
+    input {
+      border-radius: 25px;
+      border: 0 solid;
+      line-height: 40px;
+      font-size: 20px;
+      width: 60%;
+      background: $pane-color;
+    }
+  }
+}

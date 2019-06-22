@@ -20,8 +20,8 @@ class SoundcloudDiv extends Component {
 
     showSoundcloud() {
         if (this.props.soundcloud) {
-            let indexStart=this.props.soundcloud.indexOf('src');
-            let parsed= this.props.soundcloud.substring(indexStart+5, this.props.soundcloud.length-11);
+            this.props.soundcloud.indexOf('src');
+            let parsed= this.props.soundcloud.substring(this.props.soundcloud.indexOf('src')+4,this.props.soundcloud.indexOf('&color'));
             /*
         *
         * TODO: parse out the soundcloud code given by our user to make it render and maintain safety.
@@ -29,12 +29,13 @@ class SoundcloudDiv extends Component {
             return(
                 <iframe
                     title={'Soundcloud-Playlist'}
+                    margin-top="-20%"
                     width="100%"
                     height="450"
                     scrolling="no"
                     frameBorder="no"
                     allow="autoplay"
-                    src={parsed}
+                    src={`${parsed}&color=%23ff5500&auto_play=true&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true>`}
                 />
             )
         }else{

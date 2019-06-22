@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Favorite from './Favorite.js'
 import Modal from './Modal.js'
-
-import * as favoritesActions from '../Action/favorite-actions';
-
 class FavoritesDiv extends Component {
 
     constructor(props){
@@ -25,18 +22,21 @@ class FavoritesDiv extends Component {
     renderFavorites() {
         if (this.props.favorites.length>0) {
             return (<div className={'TODO_BETTER_CLASS_NAME'}>
-                    <div onClick={this.showModal.bind(this)}>
-                        <img src='../assets/edit.jpg' alt='edit'/>
-                    </div>
-                    {this.props.favorites.map(fav => {
-                        return (
-                            <Favorite
-                                favorite={fav}
-                            />
-                        )
-                    })
-                    }
-                </div>
+                        <div id={'editFavorites'}
+                            onClick={this.showModal.bind(this)}>
+                            <img src='../assets/edit.jpg' alt='edit'/>
+                        </div>
+                        <div id = 'favoritesContainer'>
+                            {this.props.favorites.map(fav => {
+                                return (
+                                    <Favorite
+                                    favorite={fav}
+                                />
+                                )
+                            })
+                            }
+                        </div>
+            </div>
             )
         }else{
             return(
