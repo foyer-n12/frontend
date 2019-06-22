@@ -1,7 +1,7 @@
 import React from 'react';
 import {geolocated} from 'react-geolocated';
 import './Weather.scss';
-import "../Styles/_vars.scss";
+import "../styles/_vars.scss";
 
 
 

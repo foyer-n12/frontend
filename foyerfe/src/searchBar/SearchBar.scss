@@ -1,28 +1,29 @@
-@import '../Styles/_vars.scss';
+@import '../styles/_vars.scss';
 
 
 #searchbar {
-  color: $google-search-color;
+  color:$text-color;
   button {
+    //color:$blue;
+    background-color: $pane-color;
     border-radius: 25px;
     border: 0 solid;
-    background-color: $pane-color;
     font-size: 25px;
-    color: $google-search-color;
   }
   form {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    color: $google-search-color;
     input {
+      color:$text-color;
       border-radius: 25px;
       border: 0 solid;
       line-height: 40px;
       font-size: 20px;
       width: 60%;
       background: $pane-color;
+      border-bottom: #979797 thin solid;
     }
   }
 }
