@@ -20,7 +20,7 @@ export default class SearchBar extends Component {
     };
     render() {
         return(
-            <div id = 'searchbar'>
+            <section id = 'searchbar'>
                 <form onSubmit={this.handleSubmit}>
                     <input
                         type ='text'
@@ -30,7 +30,7 @@ export default class SearchBar extends Component {
                     />
                     <button type='submit'> Google </button>
                 </form>
-            </div>
+            </section>
         )
     };
 };

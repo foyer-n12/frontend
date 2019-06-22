@@ -35,18 +35,28 @@ export class Dashboard extends Component {
                         <Button onClick={this.handleLogout}>Log Out</Button>
                     </header>
                     <body>
-                    <div id="left">
-                        <Clock/>
-                        <FavoritesDiv/>
-                    </div>
-                    <div id='middle'>
-                        <SearchBar/>
-                        <DarkSky/>
-                        <SoundcloudDiv/>
-                    </div>
-                    <div id='right'>
+                    <section id="left">
+                        <div>
+                            <Clock/>
+                        </div>
+                        <div>
+                            <FavoritesDiv/>
+                        </div>
+                    </section>
+                    <section id='middle'>
+                        <div>
+                            <SearchBar/>
+                        </div>
+                        <div>
+                            <DarkSky/>
+                        </div>
+                        <div>
+                            <SoundcloudDiv/>
+                        </div>
+                    </section>
+                    <section id='right'>
                         <NoteDashboard/>
-                    </div>
+                    </section>
                     </body>
                 </div>
             </main>

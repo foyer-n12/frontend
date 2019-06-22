@@ -19,13 +19,11 @@ class Modal extends React.Component{
         return(
             this.props.favorites.map((fav) => {
                     return (
-                        <li key={fav.id}>
                             <FavoritesForm favorite={fav}
                                            hide={this.props.hideModal}
                                            show={this.props.showModal}
                                            id={fav.id}
                             />
-                        </li>
                     )
                 }
             )
@@ -53,16 +51,13 @@ class Modal extends React.Component{
         return(
             <div className={showOrHide}>
                 <div className="modal-main">
-                    <ul>
-                        <li>
                             <FavoritesForm
                             hide={this.props.hideModal}
-                            show={this.props.showModal}/>
-                        </li>
+                            show={this.props.showModal}
+                            />
                         {this.renderForms()}
-                    </ul>
                 </div>
-                <button onClick={hideModal}/>
+                <button class='button' type={'button'} onClick={this.props.hideModal}>Close</button>
             </div>);
     }
 }
