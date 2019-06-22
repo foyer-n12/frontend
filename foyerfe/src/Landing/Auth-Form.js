@@ -45,10 +45,12 @@ handleChange = (event) => {
             </form>
 
         return (
+
             <form className="login-form" onSubmit={this.handleSubmit}>
                 <FormGroup>
                 <Label htmlFor="username">Username</Label>
                 <Input
+
                    placeholder="Enter Username"
                     name='username'
                     type="text"

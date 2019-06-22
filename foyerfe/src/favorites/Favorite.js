@@ -1,32 +1,20 @@
 import React, { Component } from 'react';
-import Modal from './Modal.js'
-import FavoriteForm from "./FavoritesForm";
 
 export default class Favorite extends Component {
-
-    clickLink(){
-        window.open(this.state.link,'_blank')
+    constructor(props){
+        super(props)
+        this.state={
+            link:`http://www.${this.props.favorite.link.substring(this.props.favorite.link.indexOf('www.')+4,this.props.favorite.link.length)}`||null,
+        }
     }
 
     render() {
-        const {handleUpdate}=this.props;
-        const currentFavorite = this.props.favorite;
-        const showModal = () => handleUpdate({...currentFavorite, editing:true});
-        const hideModal = () => handleUpdate({...currentFavorite, editing:false});
-        const handleUpdateFavorite = (updatedFavorite) =>{
-            handleUpdateFavorite({...updatedFavorite,editing:false});
-        };
         return(
             <div>
-                <section className={'favorite'} onClick={this.clickLink.bind(this)}>
-                    <h1>{currentFavorite.name}</h1>
+                <section className={'favorite'}>
+                    <a href={this.state.link} target="_blank">{this.props.favorite.name}</a>
                 </section>
-                <h1 onClick={showModal}>click for modal</h1>
-                <Modal show={currentFavorite.editing} hideModal={hideModal}>
-                    <FavoriteForm favorite={currentFavorite} handleComplete={handleUpdate}/>
-                </Modal>
             </div>
-
         )
     }
 };

@@ -5,7 +5,6 @@ import AuthForm from "./Auth-Form";
 import Button from 'react-bootstrap/Button';
 import {Label} from 'reactstrap';
 
-
 import {connect} from 'react-redux';
 import {ButtonToolbar} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,23 +21,27 @@ class Landing extends React.Component{
     render() {
 
         const rootJSX =
-            {/*<div className="main">*/}
-            {/*        <div>*/}
-                        {/*<span className="greeting"><h1>Welcome</h1></span>*/}
-                        {/*<ButtonToolbar>*/}
-                        {/*<Link to='/signup'>*/}
-                    {/* eslint-disable-next-line react/jsx-no-undef */}
-                    {/*<Button className="btn-lg btn-blue btn-block" className="btn"> Sign up</Button>*/}
-                {/*</Link>*/}
-                {/*        </ButtonToolbar>*/}
 
-                {/*<Link to='/login'>*/}
-                {/*    <button type="button"> Login</button>*/}
-                {/*</Link>*/}
+            <div  className="col-md-6 col-md-offset-3">
+                {/*<MuiThemeProvider>*/}
+                <div>
+                    <label htmlFor="username"><h1>Welcome</h1></label>
+                    <ButtonToolbar>
+                        <Link to='/signup'>
+                            {/* eslint-disable-next-line react/jsx-no-undef */}
+                            <Button variant="primary"> Sign up</Button>
+                        </Link>
+                    </ButtonToolbar>
 
-            {/*</div>*/}
+                    <br/>
 
-            {/*</div>;*/}
+                    <Link to='/login'>
+                        <button type="button"> Login</button>
+                    </Link>
+
+                </div>
+                {/*</MuiThemeProvider>*/}
+            </div>;
 
         const signUpJSX =
             <div>
