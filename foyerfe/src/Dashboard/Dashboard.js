@@ -12,7 +12,6 @@ import equal from 'fast-deep-equal'
 import superagent from 'superagent';
 
 
-
 export class Dashboard extends Component {
     constructor(props){
         super(props);
@@ -49,15 +48,6 @@ export class Dashboard extends Component {
                 </div>
             </main>
         )
-    }
-
-    componentDidUpdate(prevProps){
-        console.log('componentDidUpdate');
-        if(!equal(prevProps, this.props)){
-            console.log('STATE CHANGED');
-            console.log('favorites'+this.props.favorites);
-            console.log('soundcloud'+this.props.soundcloud);
-        }
     }
 };
 
