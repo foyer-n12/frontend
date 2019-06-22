@@ -29,8 +29,10 @@ class Landing extends React.Component{
                 <Link to='/signup'>
                     <div>
                         <Button className="btn-dark btn-md" className="but" type='submit'>Sign Up</Button>
+
                     </div>
                 </Link>
+                <p>Foyer is an application that enables you to use it as your main browser page with different functionalities embedded</p>
                 <AuthForm type='login' onComplete={this.handleLogin}/>
             </div>;
 

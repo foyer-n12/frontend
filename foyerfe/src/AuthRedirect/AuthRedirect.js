@@ -12,7 +12,7 @@ class AuthRedirect extends React.Component{
 
         let destinationRoute = null; // Jerome - the final route I want to send to the user
 
-        if(pathname === '/signup' || pathname === '/login'  || pathname==='/Dashboard') {
+        if(pathname === '/signup' || pathname === '/login'  || pathname==='/Dashboard' || '/oauth') {
             if(token) {
                 // console.log(pathname);
 
