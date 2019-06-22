@@ -29,10 +29,27 @@ handleChange = (event) => {
         console.log(this.state.username);
     };
 
+    handleOnClick = () => {
+        let googleURL = "https://accounts.google.com/o/oauth2/v2/auth";
+        let options = {
+            client_id:'562551923221-v15mgv44cn7dvpol98mhu8klldahg0o2.apps.googleusercontent.com',
+            redirect_uri: 'http://localhost:3000/oauth',
+            scope: 'email openid profile',
+            prompt: 'consent',
+            response_type: 'code'
+        }
+        let QueryString = Object.keys(options).map( (key,i) => {
+            return `${key}=` + encodeURIComponent(options[key]);
+        }).join("&");
+        let authURL = `${googleURL}?${QueryString}`;
 
+        return window.open(authURL, '',
+        )
+    }
 
 
     render() {
+
 
         //Jerome - type is going to tell me if my form is a login or a signup
         let {type} = this.props;
@@ -81,7 +98,7 @@ handleChange = (event) => {
 
                 <Button className="btn-lg btn-dark btn-block" type='submit'>{type}</Button>
                 <div className="text-center pt-3"> Or continue with your social account</div>
-                <GoogleLoginButton onClick={() => alert("Hello")} className="mt-3 mb" className="google"/>
+                <GoogleLoginButton onClick={this.handleOnClick} className="mt-3 mb" className="google"/>
 
                 {type!=='login' ? <Link to='/login' clasName="btn-link">Back to Log In </Link>:null}
             </form>

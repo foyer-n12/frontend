@@ -5,7 +5,6 @@ import AuthForm from "./Auth-Form";
 import Button from 'react-bootstrap/Button';
 
 
-
 import {connect} from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
