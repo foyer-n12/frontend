@@ -4,7 +4,6 @@ import './Weather.scss';
 import "../styles/_vars.scss";
 
 
-
 class Location extends React.Component {
 
     render() {
